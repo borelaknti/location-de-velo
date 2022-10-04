@@ -1,0 +1,261 @@
+body
+{
+	padding-top: 50px;
+	padding-left: 150px;
+	padding-right: 150px;
+	margin-bottom: 50px ;
+
+}
+.general
+{
+	background-color: white;
+  	border-style: solid;
+  	border-color: grey;
+  	border-width: 10px;
+  	
+}
+.generalInsc
+{
+	background-color: white;
+  	border-style: solid;
+  	border-color: grey;
+  	border-width: 10px;
+  	margin-right: 310px;
+}
+.generalVelo
+{
+	background-color: white;
+  	border-style: solid;
+  	border-color: grey;
+  	border-width: 10px;
+  	margin-right: 310px;
+}
+.titre
+{
+	font-size: 50px;
+	margin-top: 50px;
+	text-align: center;
+}
+.titreInsc
+{
+	font-size: 30px;
+	margin-top: 50px;
+	margin-left: 100px;
+	text-align: left;
+}
+.tabclient
+{
+	text-align: center;
+	font-size: 0px;
+	margin-left: 150px;
+	margin-top: 100px;
+}
+.legend
+{
+	font-size: 25px;
+	margin-top: 25px;
+	margin-left: 175px;
+}
+.buttonEndlist
+{
+	background: green;
+	margin-top: 100px;
+	margin-right: 25px;
+}
+.list tr:nth-child(even) 
+{
+	
+	background-color: #dddddd;
+}
+.list td,th 
+{
+	border: 1px solid #dddddd;
+	padding: 8px;
+}
+.list
+{
+	border-collapse: collapse;
+	width: 80%;
+}
+th
+{
+	background: gray;
+	color: white;
+}
+
+.maj
+{
+	font-weight: bold;
+}
+.nom
+{
+	font-size: 25px;
+}
+.tab
+{
+	background-color: white;
+	margin-left: 125px;
+}
+.tabVelo
+{
+	background-color: white;
+	margin-left: 90px;
+}
+.icone1
+{
+	color: red;
+}
+.icone2
+{
+	color: green;
+}
+.fact
+{
+	font-weight: bold;
+	margin-left: 125px;
+}
+.inf 
+{
+	font-weight: lighter;
+	font-size: 25px;
+}
+select
+{
+	background: #E8E8E8;
+	width: 180%;
+	height: 18%;
+	font-size: 20px ;
+}
+.option
+{
+	background: white;
+}
+.buttonVelo
+{
+	background: linear-gradient(to bottom, #009900 0%, #003300 68%);;
+	color: white;
+	border: none;
+  	padding: 30px 62px;
+  	text-align: center;
+ 	text-decoration: none;
+ 	display: inline-block;
+ 	font-size: 25px;
+  	cursor: pointer;
+	margin: 50px 90px;
+	height: 100px;
+	width: 390px;
+}
+.button 
+{
+	background: linear-gradient(to bottom, #009900 0%, #003300 68%);;
+	
+  	padding: 30px 62px;
+  	text-align: center;
+  	color: white;
+ 	text-decoration: none;
+ 	display: inline-block;
+ 	font-size: 25px;
+  	cursor: pointer;
+}
+.buttonEnd
+{
+	color: white;
+	border: none;
+	padding: 15px 42px;
+  	text-align: center;
+  	display: inline-block;
+  	font-size: 15px;
+  	cursor: pointer;
+}
+.endbutton
+{
+	margin-top: -25px;
+	margin-right: 60px;
+	margin-bottom: 30px;
+	text-align: right;
+}
+.endbuttonVelo
+{
+	margin-top: 25px;
+	margin-right: 250px;
+	margin-bottom: 15px;
+	text-align: right;
+}
+.buttonEnd1
+{
+	background: red;
+	margin-right: 30px;
+}
+.buttonEnd2
+{
+	background: green;
+	
+}
+.buttonInsc
+{
+	background: linear-gradient(to bottom, #009900 0%, #003300 68%);;
+	color: white;
+	border: none;
+  	padding: 30px 62px;
+  	text-align: center;
+ 	text-decoration: none;
+ 	display: inline-block;
+ 	font-size: 25px;
+  	cursor: pointer;
+	margin: 50px 140px;
+	height: 100px;
+	width: 390px;
+}
+.button1
+{
+	margin: 20px 16px;
+	height: 100px;
+	width: 460px; 
+}
+.button2
+{
+	margin: 18px 14px;
+	height: 100px;
+	width: 460px;
+}
+.button3
+{
+	margin: 18px 14px;
+	height: 100px;
+	width: 460px; 
+}
+.button4
+{
+	margin: 18px 14px;
+	height: 100px;
+	width: 460px; 
+}
+.button5
+{
+	margin: 18px 14px;
+	height: 100px;
+	width: 460px; 
+}
+.button6
+{
+	margin: 18px 14px;
+	height: 100px;
+	width: 460px; 
+}
+.button7
+{
+	margin: 18px 505px;
+	height: 100px;
+	width: 460px; 
+}
+.Big-button
+{
+	text-align: center;
+	margin-top: 100px ;
+	margin-bottom: 150px ;
+}
+.link
+{
+	text-decoration: none;
+	color: black;
+}
