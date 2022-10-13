@@ -44,4 +44,29 @@ class DatabaseObjects{
         return $results;
     }
 
+    /**
+     * @param $name
+     * @param $adress
+     * @param $phone
+     * @param $cart
+     * @return array
+     */
+    public function createClientArray($name,$adress,$phone,$cart): ?array
+    {
+        return ['name' => $name,'addresse' => $adress,'phone' => $phone,'credit_card' => $cart]; 
+    }
+
+    /**
+     * @param $clientArray
+     * @param $cart
+     * @return array
+     */
+    public function createClient($clientsArray): ?array
+    {
+        $sql = "INSERT INTO clients(name,addresse,phone,credit_card) VALUES (?,?,?,?)";
+        return $this->createItem($clientsArray,$sql); 
+    }
+
+
+
 }
