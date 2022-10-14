@@ -57,8 +57,7 @@ class DatabaseObjects{
     }
 
     /**
-     * @param $clientArray
-     * @param $cart
+     * @param $clientsArray
      * @return array
      */
     public function createClient($clientsArray): ?array

@@ -20,7 +20,6 @@
 				<a  href="listeVelo.php" class="link" > <button class="button5 button" >  Liste des velo a louer  </button> </a>
 				<a  href="locationVelo.php" class="link" > <button class="button6 button" >  louer un velo  </button> </a>
 			</div>
-			
 		</div>
 	</div>
 </body>

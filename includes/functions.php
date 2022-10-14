@@ -15,3 +15,10 @@ function redirect_to($location, $status=302)
    header('Location: '.$location, true, $status);
    exit();
 }
+
+function cleanUpInputs($input) {
+  $input = trim($input);
+  $input = stripslashes($input);
+  $input = htmlspecialchars($input);
+  return $input;
+}
