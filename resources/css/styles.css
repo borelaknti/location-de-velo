@@ -1,10 +1,8 @@
 body
 {
-	padding-top: 50px;
-	padding-left: 150px;
-	padding-right: 150px;
-	margin-bottom: 50px ;
-
+	padding-top: 100px;
+	padding-left: 60px;
+	margin-bottom: 30px ;
 }
 .general
 {
@@ -32,7 +30,7 @@ body
 }
 .titre
 {
-	font-size: 50px;
+	font-size: 40px;
 	margin-top: 50px;
 	text-align: center;
 }
@@ -149,7 +147,7 @@ select
 {
 	background: linear-gradient(to bottom, #009900 0%, #003300 68%);;
 	
-  	padding: 30px 62px;
+  	padding: 30px 12px;
   	text-align: center;
   	color: white;
  	text-decoration: none;
@@ -208,45 +206,43 @@ select
 }
 .button1
 {
-	margin: 20px 16px;
-	height: 100px;
-	width: 460px; 
+	margin: 20px 10px;
+	margin-left: -10px;
+	height: 90px;
+	width: 330px; 
 }
 .button2
 {
-	margin: 18px 14px;
-	height: 100px;
-	width: 460px;
+	margin: 20px 16px;
+	height: 90px;
+	width: 330px;
 }
 .button3
 {
 	margin: 18px 14px;
-	height: 100px;
-	width: 460px; 
+
+	height: 90px;
+	width: 300px; 
 }
 .button4
 {
 	margin: 18px 14px;
-	height: 100px;
-	width: 460px; 
+	margin-left: -10px;
+	height: 90px;
+	width: 330px; 
 }
 .button5
 {
 	margin: 18px 14px;
-	height: 100px;
-	width: 460px; 
+	height: 90px;
+	width: 330px; 
 }
 .button6
 {
 	margin: 18px 14px;
-	height: 100px;
-	width: 460px; 
-}
-.button7
-{
-	margin: 18px 505px;
-	height: 100px;
-	width: 460px; 
+
+	height: 90px;
+	width: 300px; 
 }
 .Big-button
 {

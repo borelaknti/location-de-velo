@@ -55,6 +55,7 @@
             {
             	$clients = new Clients();
             	$clientsArray = $clients->createClientArry($name,$adress,$phone,$cart);
+            	die(var_dump($clientsArray));
             	$result = $clients->createClient($clientsArray);
             	if($result['success']){
             		redirect_to("/listeClient");

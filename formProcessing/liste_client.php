@@ -5,7 +5,7 @@ include_once realpath(dirname(__DIR__)) .  '/includes/functions.php';
 include_once realpath(dirname(__DIR__)) .  '/layouts/header.php';
 
 $clients = new Clients();
-$clientList = $clients->findAll();
+$clientList = $clients->findAll();   
 ?>
 <?php
 

@@ -7,7 +7,7 @@
 <body>
 	<div class="general">
 		<div class="titre">
-			<h1>Système de gestion des Vélo</h1>
+			<h1>Système de gestion des Vélos</h1>
 		</div>
 		<div class="Big-button">
 			<div class="button-top">
@@ -19,9 +19,6 @@
 				<a  href="inscrireVelo.php" class="link" > <button class="button4 button" >  Nouveau velo a louer  </button> </a>
 				<a  href="listeVelo.php" class="link" > <button class="button5 button" >  Liste des velo a louer  </button> </a>
 				<a  href="locationVelo.php" class="link" > <button class="button6 button" >  louer un velo  </button> </a>
-			</div>
-			<div class="button-end">
-				 <button class=" button7 button" type="button" onclick="" >  Quitter l'application  </button> 
 			</div>
 			
 		</div>
