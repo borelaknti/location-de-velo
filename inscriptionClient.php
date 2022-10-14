@@ -8,7 +8,7 @@
 	$adressErr = $_SESSION['adressErr'] ?? "";
 	$phoneErr = $_SESSION['phoneErr'] ?? "";
 	$cartErr = $_SESSION['cartErr'] ?? "";
-
+	
 	require_once("formProcessing/inscription_client.php");
 ?>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
 		<div class="titreInsc">
 			<h1>Inscrire un nouveau client</h1>
 		</div>
-		<form id="inscription" action="inscription_client.php" method="post">
+		<form id="inscription" action="formProcessing/inscription_client.php" method="post">
 			<table class="tab" cellpadding="10" cellspacing="5">
 				<tr>
 					<td><label class="nom"> Nom </label></td> <td><input id="name" type="text" name="name" size="75" value="<?php echo htmlentities($name);?>" required /></td>

@@ -5,8 +5,8 @@
 	ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 	ob_start();
 	date_default_timezone_set('America/New_York');
-	require_once("includes/functions.php");
-	require_once("models/Clients.php");
+	require_once('includes/functions.php');
+	require_once("../models/Clients.php");
 
 	$message = "";
 	$_SESSION['message']='';
@@ -34,6 +34,7 @@
         	} else {
             	$_SESSION['name'] = cleanUpInputs($name);  //demander apres ce que ca veut dire
             	// check if name only contains letters and whitespace
+            	//die(var_dump($_SESSION['name'] ));
             	if (!preg_match("/^[a-zA-Z-' ]*$/",$_SESSION['name'])) {
                 	$_SESSION['nameErr'] = "* Seules les lettres et les espaces blancs sont autorisés";
            	 	}
@@ -54,8 +55,8 @@
             if(empty($message) && empty($_SESSION['nameErr']) && empty($_SESSION['adressErr']) && empty($_SESSION['phoneErr']) && empty($_SESSION['cartErr']))
             {
             	$clients = new Clients();
-            	$clientsArray = $clients->createClientArry($name,$adress,$phone,$cart);
-            	die(var_dump($clientsArray));
+            	$clientsArray = $clients->createClientArray($name,$adress,$phone,$cart);
+            	//die(var_dump($clientsArray));
             	$result = $clients->createClient($clientsArray);
             	if($result['success']){
             		redirect_to("/listeClient");
