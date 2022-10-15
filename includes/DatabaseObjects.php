@@ -76,8 +76,15 @@ class DatabaseObjects{
         global $database;
         $req = $database->openConnection()->prepare($sql);
         //die(var_dump($clientsArray));
-        return $req->execute(array($clientsArray["name"],$clientsArray["addresse"],$clientsArray["phone"],$clientsArray["credit_card"]));
-        //die(var_dump($req));
+        $result = $req->execute(array($clientsArray["name"],$clientsArray["addresse"],$clientsArray["phone"],$clientsArray["credit_card"]));
+        if ($result){
+            if ($database->lastInsertId() > 0){
+                return ['success'=>true, 'id'=>$database->lastInsertId()];
+            }
+        }
+        else{
+            return ['success'=>false];
+        }
 
     }
 

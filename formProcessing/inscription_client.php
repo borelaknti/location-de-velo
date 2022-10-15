@@ -45,6 +45,9 @@
             if(empty($adress)){
             	$_SESSION['adressErr'] =  "* L'adresse est obligatoire";
             }
+            /*
+             * il manque la validation pour les numéro de télépĥones et cartes de crédits.
+             */
             if (empty($phone)) {
             	$_SESSION['phoneErr'] = "* Le numero de telephone est obligatoire";
             }
