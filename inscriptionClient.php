@@ -8,8 +8,7 @@
 	$adressErr = $_SESSION['adressErr'] ?? "";
 	$phoneErr = $_SESSION['phoneErr'] ?? "";
 	$cartErr = $_SESSION['cartErr'] ?? "";
-	
-	require_once("formProcessing/inscription_client.php");
+
 ?>
 <!DOCTYPE html>
 <html>

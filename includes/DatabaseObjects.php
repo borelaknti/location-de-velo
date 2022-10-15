@@ -66,6 +66,21 @@ class DatabaseObjects{
         return $this->createItem($clientsArray,$sql); 
     }
 
+    /**
+    * @param $clientsArray
+    * @param $sql
+    * @return array
+    */
+    public function createItem($clientsArray,$sql)
+    {
+        global $database;
+        $req = $database->openConnection()->prepare($sql);
+        //die(var_dump($clientsArray));
+        return $req->execute(array($clientsArray["name"],$clientsArray["addresse"],$clientsArray["phone"],$clientsArray["credit_card"]));
+        //die(var_dump($req));
+
+    }
+
 
 
 }
