@@ -25,11 +25,11 @@ if(count($veloList) > 0)
         if($velo->available == 1)
             $htmlTable .=  '<td> <i class="fas fa-remove icone1"></i></td>';
         else
-            $htmlTable .=  '<td> <i class="fas fa-check icone2"></i>';
+            $htmlTable .=  '<td><i class="fas fa-check icone2"> </i>';
         if($velo->available == 1)
-            $htmlTable .=  '<td>  <i class="fas fa-plus"></i>  </td> <td> <i class="fas fa-trash"></i> </td>';
+            $htmlTable .=  '<td>  <i class="fas fa-plus"></i>  </td> <td> <a  href="/formProcessing/supprimerVelo.php?id='. $velo->id.'" " class="link" > <i class="fas fa-trash"></i>  </a> </td>';
         else
-            $htmlTable .=  '<td> <a  href="locationVelo.php" class="link" > <i class="fas fa-plus"></i> </a> </td> <td> <i class="fas fa-trash"></i> </td>';
+            $htmlTable .=  '<td> <a  href="locationVelo.php?id='. $velo->id.'" " class="link" > <i class="fas fa-plus"></i> </a> </td> <td> <a  href="/formProcessing/supprimerVelo.php?id='. $velo->id.'" " class="link" > <i class="fas fa-trash"></i>  </a> </td>';
         $htmlTable .=  '</tr>';
     }
 }

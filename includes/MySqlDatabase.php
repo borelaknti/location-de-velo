@@ -30,6 +30,14 @@ class MySQLDatabase
           }
     }
 
+     /**
+     * @return mixed
+     */
+    public function lastInsertId():int
+    {
+        return $this->connection->lastInsertId();//id de la derniere table qui a ete ajouter dans la base de donnee
+    }
+
 }
 
 $database = new MySQLDatabase();

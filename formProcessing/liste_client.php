@@ -23,7 +23,7 @@ if(count($clientList) > 0)
         $htmlTable .=  '<td>'. $client->addresse .'</td>';
         $htmlTable .=  '<td class="phone-number">'. phoneFormat($client->phone) .'</td>';
         $htmlTable .=  '<td>'. formatCreditCardNumber($client->credit_card) .'</td>';
-        $htmlTable .=  '<td> <a  href="locationVelo.php" class="link" > <i class="fas fa-plus"></i> </a> </td> <td> <i class="fas fa-trash"></i> </td>';
+        $htmlTable .=  '<td> <a  href="locationVelo.php?name='. $client->id .'" class="link" > <i class="fas fa-plus"></i> </a> </td>  <td><a href="/formProcessing/supprimerClient.php?id='. $client->id .'" class="link""> <i class="fas fa-trash"></i> </a></td> ';
         $htmlTable .=  '</tr>';
     }
 }
