@@ -143,11 +143,12 @@ class DatabaseObjects{
      /**
      * @param $guest
      * @param $bike
+     * @param $date
      * @return array
      */
-    public function createRentalArray($guest,$bike): ?array
+    public function createRentalArray($guest,$bike,$date): ?array
     {
-        return ['bike' => $bike,'guest' => $guest]; 
+        return ['bike' => $bike,'guest' => $guest,'return_date' => $date]; 
     }
     /**
      * @param $rentalsArray
@@ -155,7 +156,7 @@ class DatabaseObjects{
      */
     public function createRentals($rentalsArray): ?array
     {
-        $sql = "INSERT INTO rentals(velo_id,client_id) VALUES (?,?)";
+        $sql = "INSERT INTO rentals(velo_id,client_id,return_date) VALUES (?,?,?)";
         return $this->createItemRentals($rentalsArray,$sql); 
     }
 
@@ -171,7 +172,7 @@ class DatabaseObjects{
         global $database;
         $req = $database->openConnection()->prepare($sql);
         //die(var_dump($clientsArray));
-        $result = $req->execute(array($rentalsArray["bike"],$rentalsArray["guest"]));
+        $result = $req->execute(array($rentalsArray["bike"],$rentalsArray["guest"],$rentalsArray["return_date"]));
         if ($result){
             if ($database->lastInsertId() > 0){
                 return ['success'=>true, 'id'=>$database->lastInsertId()];
@@ -191,6 +192,28 @@ class DatabaseObjects{
     {
        
         $sql = "UPDATE velots SET available='1' WHERE velots.id = $velo";
+        global $database;
+        $req = $database->openConnection()->prepare($sql);
+        //die(var_dump($clientsArray));
+        $result = $req->execute();
+        if ($result){
+            return ['success'=>true];
+        }
+        else{
+            return ['success'=>false];
+        }
+
+    }
+
+    /**
+    * @param $velo
+    * @param $val
+    * @return array
+    */
+    public function updateVeloAll($velo,$val)
+    {
+       
+        $sql = "UPDATE velots SET available=$val WHERE velots.id = $velo";
         global $database;
         $req = $database->openConnection()->prepare($sql);
         //die(var_dump($clientsArray));

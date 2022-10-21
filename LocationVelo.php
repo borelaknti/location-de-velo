@@ -11,6 +11,8 @@ $veloList = $velos->findAll();
 
 $guestErr = $_SESSION['guestErr'] ?? "";
 $bikeErr = $_SESSION['bikeErr'] ?? "";
+$dateErr = $_SESSION['dateErr'] ?? "";
+$date = $_SESSION['date'] ?? "";
 
 //die(var_dump($clientList[$_GET['name'] - 1] ));
 ?>
@@ -86,9 +88,18 @@ $bikeErr = $_SESSION['bikeErr'] ?? "";
 					<span class="error"> <?php echo $bikeErr ?></span> 
 				</td>
 				</tr>
+				<tr>
+					<td>
+						<label class="date" for="date">Jusqu'a:</label> 
+					</td> 
+					<td> 
+						<input type="date" id="date" name="date" value="<?php echo htmlentities($date);?>" required /> 
+						<span class="error"> <?php echo $dateErr;?></span> 
+					</td>
+				</tr>
 			</table>
 			<div class="endbuttonVelo">
-				 <button class="buttonVelo" type="submit" name="submit">  Soumettre le formulaire  </button> </a>
+				 <button class="buttonVelo" type="submit" name="submit">  Soumettre le formulaire  </button> 
 				 <button  type="reset" class="buttonEnd buttonEnd1" >  Effacer les donnees  </button> 
 				<a  href="index.php"  > <button type="button" class="buttonEnd buttonEnd2" >  Retour au menu  </button> </a>
 			</div>

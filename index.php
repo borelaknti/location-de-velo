@@ -13,7 +13,7 @@
 			<div class="button-top">
 				<a href="inscriptionClient.php" class="link" > <button class="button1 button " >   Nouveau Client  </button> </a> 
 				<a href="listeClient.php" class="link" > <button  class="button2 button ">  Liste des Clients  </button> </a>
-				<a href="factureVelo.php" class="link" > <button class="button3 button" >  Facture  </button> </a>
+				<a href="listeFacture.php" class="link" > <button class="button3 button" >  Facture  </button> </a>
 			</div>
 			<div class="button-middle">
 				<a  href="inscrireVelo.php" class="link" > <button class="button4 button" >  Nouveau velo a louer  </button> </a>

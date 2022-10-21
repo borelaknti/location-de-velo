@@ -17,7 +17,9 @@
 			<i class='fas fa-plus '></i> <label> :nouvelle location de velo </label> <br> <br>
 			<i class='fas fa-trash'></i><label> :supprimer </label> <br> <br>
 			<i class='fas fa-remove icone1'></i><label> :loue </label> <br> <br>
-			<i class='fas fa-check icone2'></i><label> :disponible </label>
+			<i class='fas fa-check icone2'></i><label> :disponible </label> <br> <br>
+			<i class='fas fa-check-circle icone2'></i><label> :remettre disponible </label> <br> <br>
+			<i class='fas fa-check-circle '></i><label> :remettre disponible inactive </label>
 		</div>
 		<div class="endbutton">
 			<a  href="index.php"  > <button type="button" class="buttonEnd buttonEndlist" >  Retour au menu  </button> </a>

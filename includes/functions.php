@@ -22,3 +22,27 @@ function cleanUpInputs($input) {
   $input = htmlspecialchars($input);
   return $input;
 }
+
+function search($id,$veloList)
+{
+    foreach ($veloList as $velo)
+    {
+        if ($velo->id == $id)
+            return $velo;
+    }
+
+}
+
+function searchRental($id,$lab)
+{
+    //$tab[] = NULL;
+    foreach ($lab as $index)
+    {
+        if ($index->velo_id == $id && !empty($index->return_date))
+            $tab[] = $index;
+    }
+    if (empty($tab))
+        return null;
+    else
+        return end($tab);
+}
