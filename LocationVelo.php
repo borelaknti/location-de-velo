@@ -13,6 +13,7 @@ $guestErr = $_SESSION['guestErr'] ?? "";
 $bikeErr = $_SESSION['bikeErr'] ?? "";
 $dateErr = $_SESSION['dateErr'] ?? "";
 $date = $_SESSION['date'] ?? "";
+$message = $_SESSION['message'] ?? "";
 
 
 //die(var_dump($res ));
@@ -42,18 +43,19 @@ $date = $_SESSION['date'] ?? "";
 					<td><label class="nom"> Client </label></td> 
 					<td>
 						<select id="guest" name="guest">
-							<option selected disabled> choisir un client</option>
+							
 							<?php 
 							
 							if(isset($_GET['name']))
 							{
 								$res = search($_GET['name'],$clientList);
 								?>
-    								<option value="<?php echo $res->id ?> ">  <?php echo $res->name ?> </option>
+    								<option selected value="<?php echo $res->id ?> ">  <?php echo $res->name ?> </option>
 								<?php
 							}
 							else
 							{
+								echo "<option selected disabled> choisir un client</option>";
 								if(count($clientList) > 0)
 								{ 
 									foreach ($clientList as $client)
@@ -71,15 +73,15 @@ $date = $_SESSION['date'] ?? "";
 					<td><label class="nom"> Velo a louer </label></td> 
 					<td>
 					<select id="bike" name="bike">
-							<option selected disabled> choisir un velo</option>
 							<?php 
 							if(isset($_GET['id']))
 							{
 								$rec = search($_GET['id'],$veloList);
-								echo '<option value="'. $veloList[$_GET['id'] - 1]->id .'"> '. $veloList[$_GET['id'] - 1]->type .' </option>';
+								echo '<option selected value="'. $rec->id .'"> '. $rec->type .' </option>';
 								
 							}else
 							{
+								echo "<option selected disabled> choisir un velo</option>";
 								if(count($veloList) > 0)
 								{ 
 									foreach ($veloList as $velo)
