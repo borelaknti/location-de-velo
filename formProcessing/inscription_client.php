@@ -47,26 +47,57 @@
             }
             if (empty($phone)) {
             	$_SESSION['phoneErr'] = "* Le numero de telephone est obligatoire";
-            }
+            	} else {
+            		$_SESSION['phone'] = cleanUpInputs($phone);
+            		if (!preg_match("/^[0-9]+$/",$_SESSION['phone'])) 
+            		{
+            	 		$_SESSION['phoneErr'] = "* Le numero de telephone ne peux pas contenir des lettres";
+            		} 
+            		if (strlen($_SESSION['phone']) > 12) 
+            		{
+            	 		$_SESSION['phoneErr'] = "* Le numero de telephone n'inexistent pas ";
+            		} 
+            	}
+            
             if (empty($cart)) {
             	$_SESSION['cartErr'] = "* Le numero de carte bancaire est obligatoire";
-            }
+            	} else {
+            		$_SESSION['cart'] = cleanUpInputs($cart);
+            		if (!preg_match("/^[0-9]+$/",$_SESSION['cart'])) 
+            		{
+            	 		$_SESSION['cartErr'] = "* Le numero de carte ne peux pas contenir des lettres ou de caractere speciaux";
+            		} 
+            		if (strlen($_SESSION['cart']) > 20) 
+            		{
+            	 		$_SESSION['carteErr'] = "* Le numero de carte n'inexistent  pas";
+            		} 
+            	}
+            
 
             if(empty($message) && empty($_SESSION['nameErr']) && empty($_SESSION['adressErr']) && empty($_SESSION['phoneErr']) && empty($_SESSION['cartErr']))
             {
             	$clients = new Clients();
-            	$clientsArray = $clients->createClientArray($name,$adress,$phone,$cart);
-            	$result = $clients->createClient($clientsArray);
-            	if($result['success']){
-            		redirect_to("/listeClient");
-            	}
-            	else
+            	$clientList = $clients->findAll();
+            	if(searchClient($name,$clientList))
             	{
-            		$message = "erreur de creation du client";
+            		$message = "le client ajouter existe deja !!!";
             		$_SESSION['message'] = $message;
             		redirect_to("/inscriptionClient");
             	}
-
+            	else
+            	{
+            		$clientsArray = $clients->createClientArray($name,$adress,$phone,$cart);
+            		$result = $clients->createClient($clientsArray);
+            		if($result['success']){
+            			redirect_to("/listeClient");
+            		}
+            		else
+            		{
+            			$message = "erreur de creation du client";
+            			$_SESSION['message'] = $message;
+            			redirect_to("/inscriptionClient");
+            		}
+            	}
             }
             else{
             	$message = "erreur de creation du client";

@@ -30,7 +30,6 @@ function search($id,$veloList)
         if ($velo->id == $id)
             return $velo;
     }
-
 }
 
 function searchRental($id,$lab)
@@ -45,4 +44,32 @@ function searchRental($id,$lab)
         return null;
     else
         return end($tab);
+}
+
+function outputMessage($message = ""){
+    if(!empty($message)){
+        return "<p class=\"message text-danger\">{$message}</p>";
+    }else{
+        return "";
+    }
+}
+
+function searchVelo($type,$veloList)
+{
+    foreach ($veloList as $velo)
+    {
+        if ($velo->type == $type)
+            return true;
+    }
+    return false;
+}
+
+function searchClient($nom,$clientList)
+{
+    foreach ($clientList as $client)
+    {
+        if ($client->name == $nom)
+            return true;
+    }
+    return false;
 }

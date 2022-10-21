@@ -14,7 +14,8 @@ $bikeErr = $_SESSION['bikeErr'] ?? "";
 $dateErr = $_SESSION['dateErr'] ?? "";
 $date = $_SESSION['date'] ?? "";
 
-//die(var_dump($clientList[$_GET['name'] - 1] ));
+
+//die(var_dump($res ));
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,6 +28,14 @@ $date = $_SESSION['date'] ?? "";
 		<div class="titreInsc">
 			<h1>Faire une nouvelle location </h1>
 		</div>
+		<?php
+            if ($message){
+                echo 
+                	'<div class=" error-message">'.
+                    		outputMessage($message).
+                    '</div>';
+            }
+        ?>
 		<form id="location" action="formProcessing\location_velo.php" method="post">
 			<table class="tabVelo" cellpadding="10" cellspacing="55">
 				<tr>
@@ -38,8 +47,9 @@ $date = $_SESSION['date'] ?? "";
 							
 							if(isset($_GET['name']))
 							{
+								$res = search($_GET['name'],$clientList);
 								?>
-    								<option value="<?php echo $clientList[$_GET['name'] - 1]->id ?> ">  <?php echo $clientList[$_GET['name'] + 1]->name ?> </option>
+    								<option value="<?php echo $res->id ?> ">  <?php echo $res->name ?> </option>
 								<?php
 							}
 							else
@@ -65,6 +75,7 @@ $date = $_SESSION['date'] ?? "";
 							<?php 
 							if(isset($_GET['id']))
 							{
+								$rec = search($_GET['id'],$veloList);
 								echo '<option value="'. $veloList[$_GET['id'] - 1]->id .'"> '. $veloList[$_GET['id'] - 1]->type .' </option>';
 								
 							}else

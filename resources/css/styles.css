@@ -255,3 +255,13 @@ select
 	text-decoration: none;
 	color: black;
 }
+.error-message {
+    color: red;
+    background-color: #ffbbbb;
+    padding: 10px 2px 0 2px;
+    /*width: 310px;*/
+    text-align: center;
+}
+.error {
+    color: red;
+}

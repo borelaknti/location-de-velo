@@ -1,4 +1,12 @@
 <?php
+	session_start();
+	ini_set('display_errors', 'on');
+	ini_set('log_errors', 1);
+	ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
+	ob_start();
+	date_default_timezone_set('America/New_York');
+	require_once("includes/functions.php");
+
 
 	$name = $_SESSION['name'] ?? "" ; // variable pas encore defini
 	$adress = $_SESSION['adress'] ?? "" ;
@@ -8,7 +16,7 @@
 	$adressErr = $_SESSION['adressErr'] ?? "";
 	$phoneErr = $_SESSION['phoneErr'] ?? "";
 	$cartErr = $_SESSION['cartErr'] ?? "";
-
+	$message = $_SESSION['message'] ?? "";
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,23 +29,32 @@
 		<div class="titreInsc">
 			<h1>Inscrire un nouveau client</h1>
 		</div>
+		<?php
+            if ($message){
+                echo 
+                	'<div class=" error-message">'.
+                    		outputMessage($message).
+                    '</div>';
+            }
+        ?>
 		<form id="inscriptionClient" action="formProcessing/inscription_client.php" method="post">
 			<table class="tab" cellpadding="10" cellspacing="5">
 				<tr>
-					<td><label class="nom"> Nom </label></td> <td><input id="name" type="text" name="name" size="75" value="<?php echo htmlentities($name);?>" required /></td>
-					<span class="error"> <?php echo $nameErr;?></span>
+					<td><label class="nom"> Nom </label></td> <td><input id="name" type="text" name="name" size="75" value="<?php echo htmlentities($name);?>" required /> <br> <span class="error"> <?php echo $nameErr;?></span> </td>
+					
 				</tr>
 				<tr>
-					<td><label class="nom"> Adresse </label></td> <td><input id="adress" type="text" name="adress" size="75" value="<?php echo htmlentities($adress);?>" required /></td>
-					<span class="error"> <?php echo $adressErr;?></span>
+					<td><label class="nom"> Adresse </label></td> <td><input id="adress" type="text" name="adress" size="75" value="<?php echo htmlentities($adress);?>" required />
+						<br> <span class="error"> <?php echo $adressErr;?></span> </td>
+					
 				</tr>
 				<tr>
-					<td><label class="nom"> Telephone </label></td> <td><input id="phone" type="text" name="phone" size="75" value="<?php echo htmlentities($phone);?>" required /> </td>
-					<span class="error"> <?php echo $phoneErr;?></span>
+					<td><label class="nom"> Telephone </label></td> <td><input id="phone" type="text" name="phone" size="75" value="<?php echo htmlentities($phone);?>" placeholder=" Sous la forme 12453628496" required />  <br> <span class="error"> <?php echo $phoneErr;?></span> </td>
+					
 				</tr>
 				<tr>
-					<td><label class="nom"> Numero de carte de credit </label></td> <td><input id="cart" type="text" name="cart" size="75" value="<?php echo htmlentities($cart);?>" required /> </td>
-					<span class="error"> <?php echo $cartErr;?></span>
+					<td><label class="nom"> Numero de carte de credit </label></td> <td><input id="cart" type="text" name="cart" size="75" value="<?php echo htmlentities($cart);?>"  placeholder=" Sous la forme 1245362849653215" required /> <br> <span class="error"> <?php echo $cartErr;?></span> </td>
+					
 				</tr>
 			</table>
 			<button type="submit" name="submit" class="buttonInsc"  >  Soumettre le formulaire  </button> 

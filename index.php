@@ -1,3 +1,27 @@
+<?php
+session_start();
+	ini_set('display_errors', 'on');
+	ini_set('log_errors', 1);
+	ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
+	ob_start();
+	date_default_timezone_set('America/New_York');
+	
+	$_SESSION['name'] =  "" ; 
+	$_SESSION['adress'] =  "" ;
+	$_SESSION['phone'] =  "";
+	$_SESSION['cart'] =  "";
+	$_SESSION['nameErr'] =  "";
+	$_SESSION['adressErr'] =  "";
+	$_SESSION['phoneErr'] =  "";
+	$_SESSION['cartErr'] =  "";
+	$_SESSION['hauteur'] =  "" ; 
+	$_SESSION['type'] =  "" ;
+	$_SESSION['prix'] =  "";
+	$_SESSION['hauteurErr'] =  "";
+	$_SESSION['typeErr'] =  "";
+	$_SESSION['prixErr'] =  "";
+	$_SESSION['message'] =  "";
+?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -28,38 +28,55 @@
 			if (empty($hauteur)) {
             $_SESSION['hauteurErr'] = "* La hauteur est obligatoire";
         	} else {
-            	$_SESSION['hauteur'] = cleanUpInputs($name);  //demander apres ce que ca veut dire
-            	// check if name only contains letters and whitespace
-            	//die(var_dump($_SESSION['name'] ));
-            	/*if (!preg_match("/^[a-zA-Z-' ]*$/",$_SESSION['name'])) {
-                	$_SESSION['nameErr'] = "* Seules les lettres et les espaces blancs sont autorisés";
-           	 	}
-            	if (strlen($_SESSION['name']) > 100) {
-                	$_SESSION['nameErr'] = "* Le nom doit comporter un maximum de 100 caractères.";
-            	}controle de saisi pour prendre que les chiffres*/
+            	$_SESSION['hauteur'] = cleanUpInputs($hauteur);
+
+            	 if (!preg_match("/^[0-9\.]+$/",$hauteur)) 
+            	 {
+            	 	$_SESSION['hauteurErr'] = "* La hauteur ne peux pas contenir des lettres";
+            	 }  
             }
             if(empty($type)){
             	$_SESSION['typeErr'] =  "* Le type est obligatoire";
             }
             if (empty($prix)) {
             	$_SESSION['prixErr'] = "* Le prix est obligatoire";
-            }
+            } else {
+            	$_SESSION['prix'] = cleanUpInputs($prix);	
+            		if (!preg_match("/^[0-9\.]+$/",$prix)) 
+            		{
+            	 		$_SESSION['prixErr'] = "* Le prix ne peux pas contenir des lettres";
+            		} 
+            		if ($prix < 1) 
+            		{
+            	 		$_SESSION['prixErr'] = "* Le prix doit etre superieur a 1$ ";
+            		}         
+            	}
+            
 
             if(empty($message) && empty($_SESSION['hauteurErr']) && empty($_SESSION['typeErr']) && empty($_SESSION['prixErr']))
             {
             	$velos = new Velos();
-            	$velosArray = $velos->createVeloArray($hauteur,$type,$prix);
-            	$result = $velos->createVelo($velosArray);
-            	if($result['success']){
-            		redirect_to("/listeVelo");
-            	}
-            	else
+            	$veloList = $velos->findAll();
+            	if(searchVelo($type,$veloList))
             	{
-            		$message = "erreur de creation du velo";
+            		$message = "le velo ajouter existe deja !!!";
             		$_SESSION['message'] = $message;
             		redirect_to("/inscrireVelo");
             	}
-
+            	else
+            	{
+            		$velosArray = $velos->createVeloArray($hauteur,$type,$prix);
+            		$result = $velos->createVelo($velosArray);
+            		if($result['success']){
+            			redirect_to("/listeVelo");
+            		}
+            		else
+            		{
+            			$message = "erreur de creation du velo";
+            			$_SESSION['message'] = $message;
+            			redirect_to("/inscrireVelo");
+            		}
+            	}
             }
             else{
             	$message = "erreur de creation du velo";
@@ -68,4 +85,5 @@
             }
 		}
 	}
+
 ?>
