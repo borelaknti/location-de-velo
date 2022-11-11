@@ -67,7 +67,7 @@
             		{
             	 		$_SESSION['cartErr'] = "* Le numero de carte ne peux pas contenir des lettres ou de caractere speciaux";
             		} 
-            		if (strlen($_SESSION['cart']) > 20) 
+            		if (strlen($_SESSION['cart']) > 16) 
             		{
             	 		$_SESSION['carteErr'] = "* Le numero de carte n'inexistent  pas";
             		} 
