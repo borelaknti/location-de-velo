@@ -16,10 +16,13 @@ $factureList = $factures->findAll();
 ?>
 <?php
 
-$htmlTable =  '<table border="1" class="list"> 
+$htmlTable =  '<table  class="table  table-striped table-bordered">
+                <thead class="table-dark"> 
 					<tr>
 						<th> numero d\'identification  </th> <th> Type de velo </th> <th> Nom du client </th> <th> Date de retour </th>
-					</tr>';
+					</tr>
+                </thead>
+                <tbody>';
 if((count($clientList) > 0) && (count($veloList) > 0) && (count($factureList) > 0) )
 {
     
@@ -40,9 +43,9 @@ if((count($clientList) > 0) && (count($veloList) > 0) && (count($factureList) > 
 }
 else 
 {
-	$htmlTable .=  '<tr><td colspan="5" class="alert alert-danger text-center"><em>Aucun dossier n\'a été trouvé.</em></td></tr>';
+	$htmlTable .=  '<tr><td colspan="5" class="alert alert-danger text-center"><em>Aucune facture n\'a été trouvé.</em></td></tr>';
 }
-$htmlTable .=  '	</table> ';
+$htmlTable .=  '	</tbody> </table> ';
 
 
 ?>

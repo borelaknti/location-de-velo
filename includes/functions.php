@@ -48,10 +48,17 @@ function searchRental($id,$lab)
 
 function outputMessage($message = ""){
     if(!empty($message)){
-        return "<p class=\"message text-danger\">{$message}</p>";
+        return "<p class=\"error-msg\">{$message}</p>";
     }else{
         return "";
     }
+}
+
+function outputError($msg)
+{
+    if ($msg){
+        return "<p class=\"error-msg mt-3 \"> {$msg} </p>";
+            }
 }
 
 function searchVelo($type,$veloList)

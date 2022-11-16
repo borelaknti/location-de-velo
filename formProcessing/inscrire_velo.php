@@ -24,31 +24,31 @@
 			$prix = trim($_POST['prix']);
 
 			
-
+			$_SESSION['type'] = cleanUpInputs($type);
 			if (empty($hauteur)) {
-            $_SESSION['hauteurErr'] = "* La hauteur est obligatoire";
+            $_SESSION['hauteurErr'] = "La hauteur est obligatoire";
         	} else {
             	$_SESSION['hauteur'] = cleanUpInputs($hauteur);
 
             	 if (!preg_match("/^[0-9\.]+$/",$hauteur)) 
             	 {
-            	 	$_SESSION['hauteurErr'] = "* La hauteur ne peux pas contenir des lettres";
+            	 	$_SESSION['hauteurErr'] = "La hauteur ne peux pas contenir des lettres";
             	 }  
             }
             if(empty($type)){
-            	$_SESSION['typeErr'] =  "* Le type est obligatoire";
+            	$_SESSION['typeErr'] =  "Le type est obligatoire";
             }
             if (empty($prix)) {
-            	$_SESSION['prixErr'] = "* Le prix est obligatoire";
+            	$_SESSION['prixErr'] = "Le prix est obligatoire";
             } else {
             	$_SESSION['prix'] = cleanUpInputs($prix);	
             		if (!preg_match("/^[0-9\.]+$/",$prix)) 
             		{
-            	 		$_SESSION['prixErr'] = "* Le prix ne peux pas contenir des lettres";
+            	 		$_SESSION['prixErr'] = "Le prix ne peux pas contenir des lettres";
             		} 
-            		if ($prix < 1) 
+            		if ($prix < 1 && empty($_SESSION['prixErr'])) 
             		{
-            	 		$_SESSION['prixErr'] = "* Le prix doit etre superieur a 1$ ";
+            	 		$_SESSION['prixErr'] = " Le prix doit etre superieur a 1$ ";
             		}         
             	}
             

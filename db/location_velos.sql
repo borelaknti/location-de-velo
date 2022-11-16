@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mar. 20 sep. 2022 à 13:11
+-- Généré le : ven. 11 nov. 2022 à 22:08
 -- Version du serveur : 8.0.21
--- Version de PHP : 7.3.21
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,6 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `name`, `addresse`, `phone`, `credit_card`) VALUES
-(1, 'Client test01', '51 Boulevard des Prairies, Laval', '111 222446', '4242 4444 555858'),
 (2, 'Sharon Ebert DVM', '944 Mac Knolls Suite 220\nAliciachester, NE 88710', '1361514567', '6011453986079759'),
 (3, 'Elnora Bradtke', '160 Maurice Key\nJuliaborough, NE 81727-2171', '6857553999', '5494175978535779'),
 (4, 'Aletha Wilderman', '3329 Elyse Junction\nSouth Khalilchester, OH 79895', '5063493638', '5133480833726968'),
@@ -139,7 +138,14 @@ INSERT INTO `clients` (`id`, `name`, `addresse`, `phone`, `credit_card`) VALUES
 (97, 'Lyla Hahn', '09868 Raynor Stream Suite 661\nHeathcoteshire, SC 11775', '1397945817', '4929144828242768'),
 (98, 'Stephon Braun III', '45027 Frederique Prairie Suite 820\nNikkiland, HI 41420', '1107245435', '5314929622064586'),
 (99, 'Pansy Blanda', '0457 Torp Green\nDurganburgh, PA 56485-7281', '7189228408', '4929377022877969'),
-(100, 'Alda Abbott', '056 Funk River\nWest Stellafort, IA 06373', '1435582327', '4556577103174689');
+(100, 'Alda Abbott', '056 Funk River\nWest Stellafort, IA 06373', '1435582327', '4556577103174689'),
+(101, 'borel', '94 rue jacque', '4183658542', '1254368921'),
+(102, 'borel', '94 rue jacque', '4183658542', '1254368921'),
+(103, 'borel', '94 rue jacque', '4183658542', '1254368921'),
+(104, 'borel', '94 rue jacque', '4183658542', '1254368921'),
+(105, 'borel', '94 rue jacque', '4183658542', '1254368921'),
+(106, 'Giovanni', '94 rue jacque', '4183658542', '1254368921'),
+(107, 'philip', '97 jean lesage', '5421532629', '421-125-2365');
 
 -- --------------------------------------------------------
 
@@ -159,36 +165,35 @@ CREATE TABLE `rentals` (
 --
 
 INSERT INTO `rentals` (`id`, `velo_id`, `client_id`, `return_date`) VALUES
-(1, 1, 1, NULL),
 (5, 5, 5, NULL),
-(6, 6, 6, NULL),
-(11, 1, 11, NULL),
+(6, 6, 6, '2022-10-23'),
 (15, 5, 15, NULL),
-(16, 6, 16, NULL),
-(21, 1, 21, NULL),
+(16, 6, 16, '2022-10-24'),
 (25, 5, 25, NULL),
 (26, 6, 26, NULL),
-(31, 1, 31, NULL),
 (35, 5, 35, NULL),
-(36, 6, 36, NULL),
-(41, 1, 41, NULL),
+(36, 6, 36, '2022-10-26'),
 (45, 5, 45, NULL),
 (46, 6, 46, NULL),
-(51, 1, 51, NULL),
 (55, 5, 55, NULL),
 (56, 6, 56, NULL),
-(61, 1, 61, NULL),
 (65, 5, 65, NULL),
 (66, 6, 66, NULL),
-(71, 1, 71, NULL),
 (75, 5, 75, NULL),
-(76, 6, 76, NULL),
-(81, 1, 81, NULL),
+(76, 6, 76, '2022-10-27'),
 (85, 5, 85, NULL),
-(86, 6, 86, NULL),
-(91, 1, 91, NULL),
+(86, 6, 86, '2022-10-28'),
 (95, 5, 95, NULL),
-(96, 6, 96, NULL);
+(96, 6, 96, '2022-10-29'),
+(106, 11, 17, NULL),
+(107, 10, 16, NULL),
+(108, 10, 16, NULL),
+(109, 9, 3, NULL),
+(110, 4, 3, NULL),
+(111, 7, 12, NULL),
+(112, 8, 3, '2022-10-22'),
+(114, 5, 2, '2022-10-22'),
+(115, 14, 3, '2022-10-26');
 
 -- --------------------------------------------------------
 
@@ -209,16 +214,18 @@ CREATE TABLE `velots` (
 --
 
 INSERT INTO `velots` (`id`, `hauteur`, `type`, `prix`, `available`) VALUES
-(1, 040.03, 'error', 777.09, 1),
-(2, 037.31, 'nisi', 458.36, 0),
-(3, 040.81, 'voluptas', 334.27, 0),
-(4, 044.67, 'ipsam', 997.33, 0),
+(2, 037.31, 'nisi', 458.36, 1),
+(3, 040.81, 'voluptas', 334.27, 1),
+(4, 044.67, 'ipsam', 997.33, 1),
 (5, 033.66, 'dolores', 515.48, 1),
 (6, 034.86, 'sint', 1367.14, 1),
-(7, 044.36, 'nostrum', 703.59, 0),
-(8, 039.66, 'optio', 1678.74, 0),
-(9, 036.43, 'sed', 1710.74, 0),
-(10, 035.17, 'molestias', 591.78, 0);
+(7, 044.36, 'nostrum', 703.59, 1),
+(8, 039.66, 'optio', 1678.74, 1),
+(9, 036.43, 'sed', 1710.74, 1),
+(10, 035.17, 'molestias', 591.78, 1),
+(11, 000.95, 'BMX', 2500.00, 1),
+(14, 000.95, 'Vans235', 2500.00, 1),
+(15, 011.00, 'Vans235', 2500.00, 0);
 
 --
 -- Index pour les tables déchargées
@@ -252,19 +259,19 @@ ALTER TABLE `velots`
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT pour la table `rentals`
 --
 ALTER TABLE `rentals`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT pour la table `velots`
 --
 ALTER TABLE `velots`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Contraintes pour les tables déchargées

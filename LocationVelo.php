@@ -25,26 +25,31 @@ $message = $_SESSION['message'] ?? "";
 	<?php include_once "layouts/header.php"; ?>
 </head>
 <body>
-	<div class="generalVelo ">
-		<div class="titreInsc">
-			<h1>Faire une nouvelle location </h1>
+	<div class="container generalInsc ">
+		<div class="row justify-content-center mt-3 mb-5">
+			<div class="col-sm-11 ">
+				<h1>Faire une nouvelle location</h1>
+			</div>
 		</div>
 		<?php
             if ($message){
                 echo 
-                	'<div class=" error-message">'.
-                    		outputMessage($message).
-                    '</div>';
+                	'<div class="row big-error">
+						<div class="col-sm-9 offset-md-1">
+							'.
+                    			outputMessage($message).
+                    '
+						</div>
+					</div>';
             }
-        ?>
-		<form id="location" action="formProcessing\location_velo.php" method="post">
-			<table class="tabVelo" cellpadding="10" cellspacing="55">
-				<tr>
-					<td><label class="nom"> Client </label></td> 
-					<td>
-						<select id="guest" name="guest">
-							
-							<?php 
+        ?>		
+        <div class="row">
+			<form id="location" action="formProcessing\location_velo.php" method="post">
+			<div class="form-group row mb-3 ">
+  				<label  class="col-sm-3 col-form-label offset-md-1"> Client : </label>
+  				<div class="col-sm-6">
+  					<select class="form-select form-control-sm" name="guest">
+  						<?php 
 							
 							if(isset($_GET['name']))
 							{
@@ -65,15 +70,15 @@ $message = $_SESSION['message'] ?? "";
 								}
 							}
 							?>
-						</select>
-						<span class="error"> <?php echo $guestErr;?></span> 
-					</td>
-				</tr>
-				<tr>
-					<td><label class="nom"> Velo a louer </label></td> 
-					<td>
-					<select id="bike" name="bike">
-							<?php 
+					</select>
+  					<?php echo outputError($guestErr);?> 
+  				</div>
+			</div>
+			<div class="form-group row mb-3">
+  				<label  class="col-sm-3 col-form-label offset-md-1">Velo a louer :</label>
+  				<div class="col-sm-6">
+  					<select class="form-select form-control-sm" name="bike">
+  						<?php 
 							if(isset($_GET['id']))
 							{
 								$rec = search($_GET['id'],$veloList);
@@ -97,26 +102,27 @@ $message = $_SESSION['message'] ?? "";
 							}
 							
 							?>
-					</select> 
-					<span class="error"> <?php echo $bikeErr ?></span> 
-				</td>
-				</tr>
-				<tr>
-					<td>
-						<label class="date" for="date">Jusqu'a:</label> 
-					</td> 
-					<td> 
-						<input type="date" id="date" name="date" value="<?php echo htmlentities($date);?>" required /> 
-						<span class="error"> <?php echo $dateErr;?></span> 
-					</td>
-				</tr>
-			</table>
-			<div class="endbuttonVelo">
-				 <button class="buttonVelo" type="submit" name="submit">  Soumettre le formulaire  </button> 
-				 <button  type="reset" class="buttonEnd buttonEnd1" >  Effacer les donnees  </button> 
-				<a  href="index.php"  > <button type="button" class="buttonEnd buttonEnd2" >  Retour au menu  </button> </a>
+					</select>
+  					<?php echo outputError($bikeErr);?> 
+  				</div>
 			</div>
-		</form>
-	</div>
+			<div class="form-group row mb-3">
+  				<label  class="col-sm-3 col-form-label offset-md-1">Jusqu'a :</label>
+  				<div class="col-sm-6">
+  					<input type="date" class="form-control" id="date" name="date" value="<?php echo htmlentities($date);?>" required />
+  					<?php echo outputError($dateErr);?> 
+  				</div>
+			</div>
+			 
+			<div class="row mb-5 offset-md-1 ">
+				<button type="submit" class="btn btn-success col-sm-3 p-4 " name="submit" >  Soumettre le formulaire  </button>
+				<div class="col-sm mt-3 ">
+					<button  type="reset" class="btn btn-danger col-sm-3  offset-md-5 " >  Effacer les donnees  </button> 
+					<a  href="index.php" class="link btn btn-success col-sm-2  offset-md-1" role="button">   Retour au menu   </a>
+				</div>	
+			</div>
+
+			</form>
+		</div>
 </body>
 </html>

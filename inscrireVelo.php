@@ -23,36 +23,60 @@
 	<?php include_once "layouts/header.php"; ?>
 </head>
 <body>
-	<div class="generalVelo ">
-		<div class="titreInsc">
-			<h1>Inscrire un nouveau velo</h1>
+	
+
+	<div class="container-sm generalInsc ">
+		<div class="row justify-content-center mt-3 mb-5">
+			<div class="col-sm-11 ">
+				<h1>Inscrire un nouveau velo</h1>
+			</div>
 		</div>
 		<?php
             if ($message){
                 echo 
-                	'<div class="error-message">'.
-                    		outputMessage($message).
-                    '</div>';
+                	'<div class="row big-error">
+						<div class="col-sm-9 offset-md-1">
+							'.
+                    			outputMessage($message).
+                    '
+						</div>
+					</div>';
             }
         ?>
-		<form id="inscrireVelo" action="formProcessing/inscrire_velo.php" method="post">
-			<table class="tabVelo" cellpadding="10" cellspacing="5">
-				<tr>
-					<td><label class="nom"> Hauteur </label></td> <td><input type="text" name="hauteur" size="30" value="<?php echo htmlentities($hauteur);?>" > <br> <span class="error"> <?php echo $hauteurErr;?></span> </td>
-				</tr>
-				<tr>
-					<td><label class="nom"> Type </label></td> <td><input type="text" name="type" size="30" value="<?php echo htmlentities($type);?>" required> <br> <span class="error"> <?php echo $typeErr;?></span> </td>
-				</tr>
-				<tr>
-					<td><label class="nom"> Prix </label></td> <td><input type="text" name="prix" size="30" value="<?php echo htmlentities($prix);?>" required><br> <span class="error"> <?php echo $prixErr;?></span> </td>
-				</tr>
-			</table>
-			<div class="endbuttonVelo">
-				 <button class="buttonVelo" type="submit" name="submit">  Soumettre le formulaire  </button> 
-				 <button  type="reset" class="buttonEnd buttonEnd1" >  Effacer les donnees  </button> 
-				<a  href="index.php"  > <button type="button" class="buttonEnd buttonEnd2" >  Retour au menu  </button> </a>
+		<div class="row">
+			<form id="inscrireVelo" action="formProcessing/inscrire_velo.php" method="post">
+			<div class="form-group row mb-3 ">
+  				<label  class="col-sm-3 col-form-label offset-md-1"> Hauteur : </label>
+  				<div class="col-sm-6">
+  					<input type="text" class="form-control " name="hauteur" size="30" value="<?php echo htmlentities($hauteur);?>" required />
+  					<?php echo outputError($hauteurErr);?> 
+  				</div>
 			</div>
-		</form>
+			<div class="form-group row mb-3">
+  				<label  class="col-sm-3 col-form-label offset-md-1">Type :</label>
+  				<div class="col-sm-6">
+  					<input type="text" class="form-control" name="type" size="30" value="<?php echo htmlentities($type);?>" required >
+  					<?php echo outputError($typeErr);?>
+  				</div>
+			</div>
+			<div class="form-group row mb-3">
+  				<label  class="col-sm-3 col-form-label offset-md-1">Prix :</label>
+  				<div class="col-sm-6">
+  					<input type="text" class="form-control" name="prix" size="30" value="<?php echo htmlentities($prix);?>" required >
+  					<?php echo outputError($prixErr);?>
+  				</div>
+			</div>
+			 
+			<div class="row offset-md-1 mb-5">
+				<button type="submit" class="btn btn-success col-sm-3 p-4 " name="submit">  Soumettre le formulaire  </button>
+				<div class="col-sm mt-3">
+					<button  type="reset" class="btn btn-danger col-sm-3  offset-md-5 " >  Effacer les donnees  </button> 
+					<a  href="index.php" class="link btn btn-success col-sm-2  offset-md-1" role="button">   Retour au menu   </a>
+				</div>
+				
+			</div>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

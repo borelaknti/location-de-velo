@@ -263,6 +263,60 @@ select
     /*width: 310px;*/
     text-align: center;
 }
-.error {
+/*.error {
     color: red;
+}*/
+
+/* Bootstrap */
+
+/*.big-error.error-msg{
+	color: #af4242;
+	background-color: #fdeBec;
+	padding: 10px;
+	transform: translateY(-10px);
+	text-align: center;
+	font-size: 14px;
+	border-radius: 8px;
+}*/
+.success{
+	color: green;
+	background-color: #d2ffd2;
+	padding: 10px;
+	transform: translateY(-10px);
+	text-align: center;
+	font-size: 14px;
+	border-radius: 8px;
+}
+.tabclient
+{
+	text-align: center;
+	/*font-size: 5px;
+	margin-left: 150px;
+	margin-top: 100px;*/
+}
+.legend
+{
+	font-size: 25px;
+	/*margin-top: 25px;
+	margin-left: 175px;*/
+}
+
+p.error-msg.mt-3 {
+    color: #af4242;
+	background-color: #fdeBec;
+	padding: 10px;
+	transform: translateY(-10px);
+	text-align: center;
+	font-size: 14px;
+	border-radius: 8px;
+}
+
+p.error-msg {
+    color: #af4242;
+	background-color: #fdeBec;
+	padding: 10px;
+	transform: translateY(-10px);
+	text-align: center;
+	font-size: 14px;
+	border-radius: 8px;
 }

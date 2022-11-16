@@ -25,44 +25,65 @@
 	<?php include_once "layouts/header.php"; ?>
 </head>
 <body>
-	<div class="generalInsc ">
-		<div class="titreInsc">
-			<h1>Inscrire un nouveau client</h1>
+
+	<div class="container-sm generalInsc ">
+		<div class="row justify-content-center mt-3 mb-5">
+			<div class="col-sm-11 ">
+				<h1>Inscrire un nouveau client</h1>
+			</div>
 		</div>
 		<?php
             if ($message){
                 echo 
-                	'<div class=" error-message">'.
-                    		outputMessage($message).
-                    '</div>';
+                	'<div class="row big-error">
+						<div class="col-sm-9 offset-md-1">
+							'.
+                    			outputMessage($message).
+                    '
+						</div>
+					</div>';
             }
         ?>
-		<form id="inscriptionClient" action="formProcessing/inscription_client.php" method="post">
-			<table class="tab" cellpadding="10" cellspacing="5">
-				<tr>
-					<td><label class="nom"> Nom </label></td> <td><input id="name" type="text" name="name" size="75" value="<?php echo htmlentities($name);?>" required /> <br> <span class="error"> <?php echo $nameErr;?></span> </td>
-					
-				</tr>
-				<tr>
-					<td><label class="nom"> Adresse </label></td> <td><input id="adress" type="text" name="adress" size="75" value="<?php echo htmlentities($adress);?>" required />
-						<br> <span class="error"> <?php echo $adressErr;?></span> </td>
-					
-				</tr>
-				<tr>
-					<td><label class="nom"> Telephone </label></td> <td><input id="phone" type="text" name="phone" size="75" value="<?php echo htmlentities($phone);?>" placeholder=" Sous la forme 12453628496" required />  <br> <span class="error"> <?php echo $phoneErr;?></span> </td>
-					
-				</tr>
-				<tr>
-					<td><label class="nom"> Numero de carte de credit </label></td> <td><input id="cart" type="text" name="cart" size="75" value="<?php echo htmlentities($cart);?>"  placeholder=" Sous la forme 1245362849653215" required /> <br> <span class="error"> <?php echo $cartErr;?></span> </td>
-					
-				</tr>
-			</table>
-			<button type="submit" name="submit" class="buttonInsc"  >  Soumettre le formulaire  </button> 
-			<div class="endbutton">
-				 <button  type="reset" class="buttonEnd buttonEnd1" >  Effacer les donnees  </button> 
-				<a  href="index.php"  > <button type="button" class="buttonEnd buttonEnd2" >  Retour au menu  </button> </a>
+				<div class="row">
+			<form id="inscriptionClient" action="formProcessing/inscription_client.php" method="post">
+			<div class="form-group row mb-3 ">
+  				<label  class="col-sm-3 col-form-label offset-md-1"> Nom : </label>
+  				<div class="col-sm-6 ">
+  					<input type="text" class="form-control " id="name" name="name"  value="<?php echo htmlentities($name);?>" required />
+  					 <?php echo outputError($nameErr);?> 
+  				</div>
 			</div>
-		</form>
+			<div class="form-group row mb-3">
+  				<label  class="col-sm-3 col-form-label offset-md-1">Adresse :</label>
+  				<div class="col-sm-6">
+  					<input  class="form-control" id="adress" type="text" name="adress"  value="<?php echo htmlentities($adress);?>" required / >
+  					<?php echo outputError($adressErr);?></p>
+  				</div>
+			</div>
+			<div class="form-group row mb-3">
+  				<label  class="col-sm-3 col-form-label offset-md-1">Telephone :</label>
+  				<div class="col-sm-6">
+  					<input  class="form-control" id="phone" type="text" name="phone"  value="<?php echo htmlentities($phone);?>" placeholder=" Sous la forme 12453628496" required / >
+  					<?php echo outputError($phoneErr);?> </p>
+  				</div>
+			</div>
+			<div class="form-group row mb-5">
+  				<label  class="col-sm-3 col-form-label offset-md-1">Numero de carte de credit :</label>
+  				<div class="col-sm-6">
+  					<input  class="form-control" id="cart" type="text" name="cart"  value="<?php echo htmlentities($cart);?>"  placeholder=" Sous la forme 1245362849653215" required / >
+  					<?php echo outputError($cartErr);?> </p>
+  				</div>
+			</div>
+			 
+			<div class="row offset-md-1">
+				<button type="submit" name="submit" class="btn btn-success col-sm-3 p-4 " >  Soumettre le formulaire  </button>
+			</div>
+			<div class="row justify-content-end mb-5 me-2 gx-1">
+				<button  type="reset" class="btn btn-danger col-sm-2 " >  Effacer les donnees  </button> 
+				<a  href="index.php" class="link btn btn-success col-sm-2 offset-md-1 " role="button">   Retour au menu   </a>
+			</div>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

@@ -9,10 +9,13 @@ $clientList = $clients->findAll();
 ?>
 <?php
 
-$htmlTable =  '<table border="1" class="list"> 
+$htmlTable =  '<table class="table  table-striped table-bordered "> 
+                <thead class="table-dark">
 					<tr>
 						<th> numero d\'identification  </th> <th> Nom </th> <th> Adresse </th> <th>telephone</th> <th>Numero carte credit</th> <th colspan="2">action</th>
-					</tr>';
+					</tr>
+                </thead>
+                <tbody>';
 if(count($clientList) > 0)
 {
     foreach ($clientList as $client)
@@ -29,8 +32,8 @@ if(count($clientList) > 0)
 }
 else 
 {
-	$htmlTable .=  '<tr><td colspan="5" class="alert alert-danger text-center"><em>Aucun dossier n\'a été trouvé.</em></td></tr>';
+	$htmlTable .=  '<tr><td colspan="5" class="alert alert-danger text-center"><em>Aucun client n\'a été trouvé.</em></td></tr>';
 }
-$htmlTable .=  '	</table> ';
+$htmlTable .=  '	</tbody> </table> ';
 
 ?>

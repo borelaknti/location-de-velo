@@ -28,49 +28,51 @@
 			$cart = trim($_POST['cart']);
 
 			
-
+			$_SESSION['adress']  = cleanUpInputs($adress);
 			if (empty($name)) {
-            $_SESSION['nameErr'] = "* Le nom est obligatoire";
+            $_SESSION['nameErr'] = "Le nom est obligatoire";
         	} else {
             	$_SESSION['name'] = cleanUpInputs($name);  //demander apres ce que ca veut dire
             	// check if name only contains letters and whitespace
             	//die(var_dump($_SESSION['name'] ));
             	if (!preg_match("/^[a-zA-Z-' ]*$/",$_SESSION['name'])) {
-                	$_SESSION['nameErr'] = "* Seules les lettres et les espaces blancs sont autorisés";
+                	$_SESSION['nameErr'] = "Seules les lettres et les espaces blancs sont autorisés";
            	 	}
             	if (strlen($_SESSION['name']) > 100) {
-                	$_SESSION['nameErr'] = "* Le nom doit comporter un maximum de 100 caractères.";
+                	$_SESSION['nameErr'] = "Le nom doit comporter un maximum de 100 caractères.";
             	}
             }
             if(empty($adress)){
-            	$_SESSION['adressErr'] =  "* L'adresse est obligatoire";
+            	$_SESSION['adressErr'] =  "L'adresse est obligatoire";
             }
             if (empty($phone)) {
-            	$_SESSION['phoneErr'] = "* Le numero de telephone est obligatoire";
+            	$_SESSION['phoneErr'] = "Le numero de telephone est obligatoire";
             	} else {
             		$_SESSION['phone'] = cleanUpInputs($phone);
             		if (!preg_match("/^[0-9]+$/",$_SESSION['phone'])) 
             		{
-            	 		$_SESSION['phoneErr'] = "* Le numero de telephone ne peux pas contenir des lettres";
+            	 		$_SESSION['phoneErr'] = "Le numero de telephone ne peux pas contenir des lettres";
             		} 
-            		if (strlen($_SESSION['phone']) > 12) 
+            		if (strlen($_SESSION['phone']) != 10) 
             		{
-            	 		$_SESSION['phoneErr'] = "* Le numero de telephone n'inexistent pas ";
+            	 		$_SESSION['phoneErr'] = "Le numero de telephone n'inexistent pas ";
             		} 
             	}
             
             if (empty($cart)) {
-            	$_SESSION['cartErr'] = "* Le numero de carte bancaire est obligatoire";
+            	$_SESSION['cartErr'] = "Le numero de carte bancaire est obligatoire";
             	} else {
             		$_SESSION['cart'] = cleanUpInputs($cart);
+
             		if (!preg_match("/^[0-9]+$/",$_SESSION['cart'])) 
             		{
-            	 		$_SESSION['cartErr'] = "* Le numero de carte ne peux pas contenir des lettres ou de caractere speciaux";
+            	 		$_SESSION['cartErr'] = "Le numero de carte ne peux pas contenir des lettres ou de caractere speciaux";
             		} 
-            		if (strlen($_SESSION['cart']) > 16) 
+            		if (strlen($_SESSION['cart']) != 16) 
             		{
-            	 		$_SESSION['carteErr'] = "* Le numero de carte n'inexistent  pas";
+            	 		$_SESSION['cartErr'] = "Le numero de carte doit avoir 16 chiffres ";
             		} 
+            		//die(var_dump($_SESSION['carteErr'] ));
             	}
             
 
