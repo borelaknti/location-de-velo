@@ -45,6 +45,10 @@
             if(empty($adress)){
             	$_SESSION['adressErr'] =  "* L'adresse est obligatoire";
             }
+            /*
+             * Corrections :
+             * -    Il manque un else pour le cas ou la valeur de l'adresse du client est valide afin de fournir une valeur à la session adress.
+             */
             if (empty($phone)) {
             	$_SESSION['phoneErr'] = "* Le numero de telephone est obligatoire";
             	} else {

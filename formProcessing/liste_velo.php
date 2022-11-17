@@ -15,6 +15,10 @@ $rentalList = $rentals->findAll();
 ?>
 <?php
 
+/*
+ * Corrections :
+ * -  Enlever border n'est plus utilisé dans le HTML. Ajouter le css dans une classe
+ */
 $htmlTable =  '<table border="1" class="list"> 
 					<tr>
 						<th> numero d\'identification  </th> <th> Hauteur </th> <th> Type </th> <th>Prix</th> <th>Disponibilite</th> <th>Date de retour</th> <th colspan="3">action</th>

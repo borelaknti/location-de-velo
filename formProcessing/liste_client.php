@@ -9,6 +9,10 @@ $clientList = $clients->findAll();
 ?>
 <?php
 
+/*
+ * Corrections :
+ * -  Enlever border n'est plus utilisé dans le HTML. Ajouter le css dans une classe
+ */
 $htmlTable =  '<table border="1" class="list"> 
 					<tr>
 						<th> numero d\'identification  </th> <th> Nom </th> <th> Adresse </th> <th>telephone</th> <th>Numero carte credit</th> <th colspan="2">action</th>

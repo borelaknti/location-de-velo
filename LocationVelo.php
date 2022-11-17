@@ -37,6 +37,11 @@ $message = $_SESSION['message'] ?? "";
                     '</div>';
             }
         ?>
+
+        <!--
+           Corrections :
+          -  Enlever cellpadding et cellspacing n'est plus utilisé dans le HTML. Ajouter le css dans une classe
+       -->
 		<form id="location" action="formProcessing\location_velo.php" method="post">
 			<table class="tabVelo" cellpadding="10" cellspacing="55">
 				<tr>
@@ -106,7 +111,10 @@ $message = $_SESSION['message'] ?? "";
 						<label class="date" for="date">Jusqu'a:</label> 
 					</td> 
 					<td> 
-						<input type="date" id="date" name="date" value="<?php echo htmlentities($date);?>" required /> 
+						<input type="date" id="date" name="date" value="<?php echo htmlentities($date);?>" required />
+<!--Corrections :
+-   juste mettre le PHP, donc : <?php echo $dateErr;?>
+-->
 						<span class="error"> <?php echo $dateErr;?></span> 
 					</td>
 				</tr>

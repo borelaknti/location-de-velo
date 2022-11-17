@@ -37,6 +37,12 @@
                     '</div>';
             }
         ?>
+
+        <!--
+           Corrections :
+          -  Enlever cellpadding et cellspacing n'est plus utilisé dans le HTML. Ajouter le css dans une classe
+       -->
+
 		<form id="inscriptionClient" action="formProcessing/inscription_client.php" method="post">
 			<table class="tab" cellpadding="10" cellspacing="5">
 				<tr>
@@ -45,7 +51,8 @@
 				</tr>
 				<tr>
 					<td><label class="nom"> Adresse </label></td> <td><input id="adress" type="text" name="adress" size="75" value="<?php echo htmlentities($adress);?>" required />
-						<br> <span class="error"> <?php echo $adressErr;?></span> </td>
+						<br>
+                        <span class="error"> <?php echo $adressErr;?></span> </td>
 					
 				</tr>
 				<tr>

@@ -35,6 +35,12 @@
                     '</div>';
             }
         ?>
+
+        <!--
+           Corrections :
+          -  Enlever cellpadding et cellspacing n'est plus utilisé dans le HTML. Ajouter le css dans une classe
+       -->
+
 		<form id="inscrireVelo" action="formProcessing/inscrire_velo.php" method="post">
 			<table class="tabVelo" cellpadding="10" cellspacing="5">
 				<tr>

@@ -35,6 +35,10 @@
             	 	$_SESSION['hauteurErr'] = "* La hauteur ne peux pas contenir des lettres";
             	 }  
             }
+            /*
+             * Corrections :
+             * -    Il manque un else pour le cas ou la valeur du type de vélo est valide afin de fournir une valeur à la session type.
+             */
             if(empty($type)){
             	$_SESSION['typeErr'] =  "* Le type est obligatoire";
             }

@@ -8,7 +8,10 @@ $facture = new Facture();
 $factureInf = $facture->findFacture();
 ?>
 <?php
-
+/*
+ * Corrections :
+ * -  Enlever cellpadding et cellspacing n'est plus utilisé dans le HTML. Ajouter le css dans une classe
+ */
 $htmlTable =  '<table class="fact" cellpadding="10" cellspacing="5">';
 if($factureInf)
 {

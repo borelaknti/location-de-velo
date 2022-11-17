@@ -16,6 +16,10 @@ $factureList = $factures->findAll();
 ?>
 <?php
 
+/*
+ * Corrections :
+ * -  Enlever border n'est plus utilisé dans le HTML. Ajouter le css dans une classe
+ */
 $htmlTable =  '<table border="1" class="list"> 
 					<tr>
 						<th> numero d\'identification  </th> <th> Type de velo </th> <th> Nom du client </th> <th> Date de retour </th>
