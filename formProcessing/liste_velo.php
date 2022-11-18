@@ -15,10 +15,13 @@ $rentalList = $rentals->findAll();
 ?>
 <?php
 
-$htmlTable =  '<table border="1" class="list"> 
+$htmlTable =  '<table class="table  table-striped table-bordered "> 
+                    <thead class="table-dark">
 					<tr>
 						<th> numero d\'identification  </th> <th> Hauteur </th> <th> Type </th> <th>Prix</th> <th>Disponibilite</th> <th>Date de retour</th> <th colspan="3">action</th>
-					</tr>';
+					</tr>
+                    </thead>
+                    <tbody>';
 if(count($veloList) > 0)
 {
     foreach ($veloList as $velo)
@@ -51,8 +54,9 @@ if(count($veloList) > 0)
 }
 else 
 {
-	$htmlTable .=  '<tr><td colspan="5" class="alert alert-danger text-center"><em>Aucun dossier n\'a été trouvé.</em></td></tr>';
+	$htmlTable .=  '<tr><td colspan="5" class="alert alert-danger text-center"><em>Aucun velo loue n\'a été trouvé.</em></td></tr>';
 }
-$htmlTable .=  '	</table> ';
+$htmlTable .=  '	</tbody>
+                </table> ';
 
 ?>
