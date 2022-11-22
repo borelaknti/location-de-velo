@@ -28,7 +28,7 @@
 		</div> 
 		<div class="row justify-content-end mb-2 me-2 gx-1">
 			<div class="col-sm-2 ">
-				<a  href="index.html" class="link btn btn-success  " role="button">   Retour au menu   </a>
+				<a  href="index.php" class="link btn btn-success  " role="button">   Retour au menu   </a>
 			</div>
 		</div>
 	</div>

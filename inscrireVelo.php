@@ -37,7 +37,7 @@
                 	'<div class="row big-error">
 						<div class="col-sm-9 offset-md-1">
 							'.
-                    			outputMessage($message).
+                    			outputError($message).
                     '
 						</div>
 					</div>';
