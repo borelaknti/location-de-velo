@@ -34,7 +34,6 @@ function search($id,$veloList)
 
 function searchRental($id,$lab)
 {
-    //$tab[] = NULL;
     foreach ($lab as $index)
     {
         if ($index->velo_id == $id && !empty($index->return_date))

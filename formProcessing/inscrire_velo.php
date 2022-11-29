@@ -24,7 +24,7 @@
 			$prix = trim($_POST['prix']);
 
 			
-			$_SESSION['type'] = cleanUpInputs($type);
+			
 			if (empty($hauteur)) {
             $_SESSION['hauteurErr'] = "La hauteur est obligatoire";
         	} else {
@@ -37,6 +37,9 @@
             }
             if(empty($type)){
             	$_SESSION['typeErr'] =  "Le type est obligatoire";
+            }else
+            {
+            	$_SESSION['type'] = cleanUpInputs($type);
             }
             if (empty($prix)) {
             	$_SESSION['prixErr'] = "Le prix est obligatoire";

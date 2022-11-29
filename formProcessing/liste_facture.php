@@ -12,7 +12,6 @@ $clients = new Clients();
 $clientList = $clients->findAll();
 $veloList = $velos->findAll();
 $factureList = $factures->findAll();   
-//die(var_dump($veloList));
 ?>
 <?php
 

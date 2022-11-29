@@ -12,7 +12,6 @@ $factureInf = $facture->findFacture();
 $htmlTable =  '<div class="row">';
 if($factureInf)
 {
-	//die(var_dump($factureInf));
     	$htmlTable .=  '<div class="form-group row mb-3 ">
                             <label  class=" nom col-sm-3  offset-md-1 "> Nom : </label>
                                 <div class="col-sm-6">
@@ -45,8 +44,7 @@ if($factureInf)
                             <label  class=" nom col-sm-3  offset-md-1 "> Prix: </label>
                                 <div class="col-sm-6">
                                     <label class="inf "> '. $factureInf[0]->prix .'</label> </div> </div>';	
-}
-else 
+}else 
 {
 	$htmlTable .=  '<tr><td colspan="5" class="alert alert-danger text-center"><em>Aucune facture n\'a été trouvé.</em></td></tr>';
 }

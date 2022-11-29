@@ -16,7 +16,6 @@ $velos = new Velos();
 $veloList = $velos->findAll();
 $velo= search($_GET['id'],$veloList);
 if ($velo->available == 1){
-    //die(var_dump($userArray));
     $var = 0;
     $result = $velos->updateVeloAll($_GET['id'],$var);
     if ($result['success']){
@@ -29,7 +28,6 @@ if ($velo->available == 1){
 }
 else
 {
-    //die(var_dump($userArray));
     $var = 1;
     $result = $velos->updateVeloAll($_GET['id'],$var);
     if ($result['success']){

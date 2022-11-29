@@ -1,4 +1,12 @@
 <?php
+
+	session_start();
+	ini_set('display_errors', 'on');
+	ini_set('log_errors', 1);
+	ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
+	ob_start();
+	date_default_timezone_set('America/New_York');
+
 include('includes/MySQLDatabase.php');
 include('models/Clients.php');
 include('models/Velos.php');
@@ -7,16 +15,16 @@ $clients = new Clients();
 $clientList = $clients->findAll();
 $velos = new Velos();
 $veloList = $velos->findAll();
-//die(var_dump($clientList)); 
 
 $guestErr = $_SESSION['guestErr'] ?? "";
 $bikeErr = $_SESSION['bikeErr'] ?? "";
 $dateErr = $_SESSION['dateErr'] ?? "";
 $date = $_SESSION['date'] ?? "";
+$guest = $_SESSION['guest'] ?? "";
+$bike = $_SESSION['bike'] ?? "";
 $message = $_SESSION['message'] ?? "";
+ 
 
-
-//die(var_dump($res ));
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,6 +66,12 @@ $message = $_SESSION['message'] ?? "";
     								<option selected value="<?php echo $res->id ?> ">  <?php echo $res->name ?> </option>
 								<?php
 							}
+							elseif (!empty($guest)) {
+								$res = search($guest,$clientList);
+								?>
+    								<option selected value="<?php echo $res->id ?> ">  <?php echo $res->name ?> </option>
+								<?php
+							}
 							else
 							{
 								echo "<option selected disabled> choisir un client</option>";
@@ -84,7 +98,12 @@ $message = $_SESSION['message'] ?? "";
 								$rec = search($_GET['id'],$veloList);
 								echo '<option selected value="'. $rec->id .'"> '. $rec->type .' </option>';
 								
-							}else
+							}elseif(!empty($bike))
+							{
+								$rec = search($bike,$veloList);
+								echo '<option selected value="'. $rec->id .'"> '. $rec->type .' </option>';
+							}
+							else
 							{
 								echo "<option selected disabled> choisir un velo</option>";
 								if(count($veloList) > 0)

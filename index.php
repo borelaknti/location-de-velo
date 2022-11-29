@@ -14,13 +14,20 @@ session_start();
 	$_SESSION['adressErr'] =  "";
 	$_SESSION['phoneErr'] =  "";
 	$_SESSION['cartErr'] =  "";
-	$_SESSION['hauteur'] =  "" ; 
+	$_SESSION['hauteur'] =  "" ;
+	$_SESSION['dateErr'] = "";
 	$_SESSION['type'] =  "" ;
 	$_SESSION['prix'] =  "";
 	$_SESSION['hauteurErr'] =  "";
 	$_SESSION['typeErr'] =  "";
 	$_SESSION['prixErr'] =  "";
 	$_SESSION['message'] =  "";
+	$_SESSION['guest']='';
+	$_SESSION['bike']='';
+	$_SESSION['dateErr']= '';
+	$_SESSION['guestErr'] = "";
+	 $_SESSION['bikeErr'] = "";
+	 $_SESSION['date']=""  ;
 ?>
 <!DOCTYPE html>
 <html>

@@ -38,7 +38,6 @@ class DatabaseObjects{
 
         while ($row = $resultSet->fetchAll()){
             $results = $row;
-            //die(var_dump($row));
         }
 
         return $results;
@@ -73,15 +72,9 @@ class DatabaseObjects{
     */
     public function createItem($clientsArray,$sql)
     {
-        //global $database;
-        //$req = $database->openConnection()->prepare($sql);
-        //die(var_dump($clientsArray));
-        //return $req->execute(array($clientsArray["name"],$clientsArray["addresse"],$clientsArray["phone"],$clientsArray["credit_card"]));
-        //die(var_dump($req));
 
         global $database;
         $req = $database->openConnection()->prepare($sql);
-        //die(var_dump($clientsArray));
         $result = $req->execute(array($clientsArray["name"],$clientsArray["addresse"],$clientsArray["phone"],$clientsArray["credit_card"]));
         if ($result){
             if ($database->lastInsertId() > 0){
@@ -127,7 +120,6 @@ class DatabaseObjects{
 
         global $database;
         $req = $database->openConnection()->prepare($sql);
-        //die(var_dump($clientsArray));
         $result = $req->execute(array($velosArray["hauteur"],$velosArray["type"],$velosArray["prix"],$velosArray["available"]));
         if ($result){
             if ($database->lastInsertId() > 0){
@@ -171,7 +163,6 @@ class DatabaseObjects{
 
         global $database;
         $req = $database->openConnection()->prepare($sql);
-        //die(var_dump($clientsArray));
         $result = $req->execute(array($rentalsArray["bike"],$rentalsArray["guest"],$rentalsArray["return_date"]));
         if ($result){
             if ($database->lastInsertId() > 0){
@@ -194,7 +185,6 @@ class DatabaseObjects{
         $sql = "UPDATE velots SET available='1' WHERE velots.id = $velo";
         global $database;
         $req = $database->openConnection()->prepare($sql);
-        //die(var_dump($clientsArray));
         $result = $req->execute();
         if ($result){
             return ['success'=>true];
@@ -216,7 +206,6 @@ class DatabaseObjects{
         $sql = "UPDATE velots SET available=$val WHERE velots.id = $velo";
         global $database;
         $req = $database->openConnection()->prepare($sql);
-        //die(var_dump($clientsArray));
         $result = $req->execute();
         if ($result){
             return ['success'=>true];
@@ -235,7 +224,6 @@ class DatabaseObjects{
     {
        
         $sql = " DELETE  FROM clients  WHERE clients.id = $id ";
-        //die(var_dump($sql));
         global $database;
         $req = $database->openConnection()->prepare($sql);
         
@@ -259,7 +247,6 @@ class DatabaseObjects{
         $sql = "DELETE  FROM rentals  WHERE rentals.client_id = $id";
         global $database;
         $req = $database->openConnection()->prepare($sql);
-        //die(var_dump($clientsArray));
         $result = $req->execute();
         if ($result){
             return ['success'=>true];
@@ -280,7 +267,6 @@ class DatabaseObjects{
         $sql = "DELETE  FROM rentals  WHERE rentals.velo_id = $id";
         global $database;
         $req = $database->openConnection()->prepare($sql);
-        //die(var_dump($clientsArray));
         $result = $req->execute();
         if ($result){
             return ['success'=>true];
@@ -299,7 +285,6 @@ class DatabaseObjects{
     {
        
         $sql = " DELETE  FROM velots  WHERE velots.id = $id ";
-        //die(var_dump($sql));
         global $database;
         $req = $database->openConnection()->prepare($sql);
         

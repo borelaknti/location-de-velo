@@ -35,7 +35,7 @@ class MySQLDatabase
      */
     public function lastInsertId():int
     {
-        return $this->connection->lastInsertId();//id de la derniere table qui a ete ajouter dans la base de donnee
+        return $this->connection->lastInsertId();
     }
 
 }

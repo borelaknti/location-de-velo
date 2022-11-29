@@ -12,7 +12,7 @@
 	$_SESSION['guest']='';
 	$_SESSION['bike']='';
 	$_SESSION['date']= '';
-	$_SESSION['guestErr'] = $_SESSION['bikeErr'] = $_SESSION['date']=""  ;
+	$_SESSION['guestErr'] = $_SESSION['bikeErr'] = $_SESSION['dateErr']='';
 
 	if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		$guest = "";
@@ -25,24 +25,38 @@
 			$date = trim($_POST['date']);
 
 			if (empty($guest)) {
-            $_SESSION['guestErr'] = "* Le client est obligatoire";
+            $_SESSION['guestErr'] = " Le client est obligatoire";
+        	}else {
+        		$_SESSION['guest'] = cleanUpInputs($guest);
         	} 
             if(empty($bike)){
-            	$_SESSION['bikeErr'] =  "* Le velo est obligatoire";
+            	$_SESSION['bikeErr'] =  " Le velo est obligatoire";
+            }else
+            {
+            	$_SESSION['bike'] = cleanUpInputs($bike);
             }
             if(empty($date)){
-            	$_SESSION['dateErr'] =  "* La date est obligatoire";
+            	$_SESSION['dateErr'] =  " La date est obligatoire";
+            }else
+            {
+            	$_SESSION['date'] = cleanUpInputs($date);
+            	$dt = time();
+            	$dt = date("Y-m-d", $dt);
+
+            	if($dt >= $date)
+            	{
+            		$_SESSION['dateErr'] = $_SESSION['dateErr']." La date est inferieur a la date d'aujourd'hui";
+            	}
             }
 
             if(empty($message) && empty($_SESSION['guestErr']) && empty($_SESSION['bikeErr']) && empty($_SESSION['dateErr']))
             {
             	$rentals = new Rentals();
             	$rentalsArray = $rentals->createRentalArray($guest,$bike,$date);
-
+            	
             	$result = $rentals->createRentals($rentalsArray);
-            	//die(var_dump($result));
             	$res = $rentals->updateVelo($bike);
-            	//die(var_dump($res));
+
             	if($result['success'] && $res['success']){
             		redirect_to("/factureVelo.php");
             	}
@@ -55,6 +69,7 @@
 
             }
             else{
+
             	$message = "erreur de location du velo";
             	$_SESSION['message'] = $message;
             	redirect_to("/LocationVelo");

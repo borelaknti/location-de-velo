@@ -28,22 +28,23 @@
 			$cart = trim($_POST['cart']);
 
 			
-			$_SESSION['adress']  = cleanUpInputs($adress);
+			
 			if (empty($name)) {
             $_SESSION['nameErr'] = "Le nom est obligatoire";
         	} else {
-            	$_SESSION['name'] = cleanUpInputs($name);  //demander apres ce que ca veut dire
-            	// check if name only contains letters and whitespace
-            	//die(var_dump($_SESSION['name'] ));
+            	$_SESSION['name'] = cleanUpInputs($name);
             	if (!preg_match("/^[a-zA-Z-' ]*$/",$_SESSION['name'])) {
                 	$_SESSION['nameErr'] = "Seules les lettres et les espaces blancs sont autorisés";
            	 	}
             	if (strlen($_SESSION['name']) > 100) {
-                	$_SESSION['nameErr'] = "Le nom doit comporter un maximum de 100 caractères.";
+                	$_SESSION['nameErr'] = $_SESSION['nameErr']." Le nom doit comporter un maximum de 100 caractères.";
             	}
             }
             if(empty($adress)){
             	$_SESSION['adressErr'] =  "L'adresse est obligatoire";
+            }else
+            {
+            	$_SESSION['adress']  = cleanUpInputs($adress);
             }
             if (empty($phone)) {
             	$_SESSION['phoneErr'] = "Le numero de telephone est obligatoire";
@@ -55,7 +56,7 @@
             		} 
             		if (strlen($_SESSION['phone']) != 10) 
             		{
-            	 		$_SESSION['phoneErr'] = "Le numero de telephone n'inexistent pas ";
+            	 		$_SESSION['phoneErr'] = $_SESSION['phoneErr'] ." Le numero de telephone n'inexistent pas ";
             		} 
             	}
             
@@ -70,9 +71,8 @@
             		} 
             		if (strlen($_SESSION['cart']) != 16) 
             		{
-            	 		$_SESSION['cartErr'] = "Le numero de carte doit avoir 16 chiffres ";
+            	 		$_SESSION['cartErr'] = $_SESSION['cartErr']." Le numero de carte doit avoir 16 chiffres ";
             		} 
-            		//die(var_dump($_SESSION['carteErr'] ));
             	}
             
 

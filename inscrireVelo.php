@@ -8,7 +8,7 @@
 	date_default_timezone_set('America/New_York');
 	require_once("includes/functions.php");
 
-	$hauteur = $_SESSION['hauteur'] ?? "" ; // variable pas encore defini
+	$hauteur = $_SESSION['hauteur'] ?? "" ; 
 	$type = $_SESSION['type'] ?? "" ;
 	$prix = $_SESSION['prix'] ?? "";
 	$hauteurErr = $_SESSION['hauteurErr'] ?? "";

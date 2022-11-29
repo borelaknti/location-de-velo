@@ -8,7 +8,7 @@
 	require_once("includes/functions.php");
 
 
-	$name = $_SESSION['name'] ?? "" ; // variable pas encore defini
+	$name = $_SESSION['name'] ?? "" ; 
 	$adress = $_SESSION['adress'] ?? "" ;
 	$phone = $_SESSION['phone'] ?? "";
 	$cart = $_SESSION['cart'] ?? "";
