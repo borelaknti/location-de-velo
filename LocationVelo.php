@@ -136,12 +136,24 @@ $message = $_SESSION['message'] ?? "";
 			<div class="row mb-5 offset-md-1 ">
 				<button type="submit" class="btn btn-success col-sm-3 p-4 " name="submit" >  Soumettre le formulaire  </button>
 				<div class="col-sm mt-3 ">
-					<button  type="reset" class="btn btn-danger col-sm-3  offset-md-5 " >  Effacer les donnees  </button> 
+					<button  type="reset" id="reset" class="btn btn-danger col-sm-3  offset-md-5 " >  Effacer les donnees  </button> 
 					<a  href="index.php" class="link btn btn-success col-sm-2  offset-md-1" role="button">   Retour au menu   </a>
 				</div>	
 			</div>
 
 			</form>
 		</div>
+		<script >
+		$(document).ready(function(){
+			$('#reset').click(function(){
+				var xhr = new XMLHttpRequest();
+				xhr.onload = function(){
+					document.location = 'LocationVelo.php';
+				}
+				xhr.open('GET','includes/clearSession.php',true);
+				xhr.send();
+			});
+		});
+	</script>
 </body>
 </html>

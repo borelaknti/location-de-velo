@@ -79,11 +79,23 @@
 				<button type="submit" name="submit" class="btn btn-success col-sm-3 p-4 " >  Soumettre le formulaire  </button>
 			</div>
 			<div class="row justify-content-end mb-5 me-2 gx-1">
-				<button  type="reset" class="btn btn-danger col-sm-2 " >  Effacer les donnees  </button> 
+				<button  type="reset" id="reset"  class="btn btn-danger col-sm-2 " >  Effacer les donnees  </button> 
 				<a  href="index.php" class="link btn btn-success col-sm-2 offset-md-1 " role="button">   Retour au menu   </a>
 			</div>
 			</form>
 		</div>
 	</div>
+	<script >
+		$(document).ready(function(){
+			$('#reset').click(function(){
+				var xhr = new XMLHttpRequest();
+				xhr.onload = function(){
+					document.location = 'inscriptionClient.php';
+				}
+				xhr.open('GET','includes/clearSession.php',true);
+				xhr.send();
+			});
+		});
+	</script>
 </body>
 </html>
