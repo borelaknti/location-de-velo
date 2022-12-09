@@ -58,7 +58,7 @@
             	$res = $rentals->updateVelo($bike);
 
             	if($result['success'] && $res['success']){
-            		redirect_to("/factureVelo.php");
+            		redirect_to("/listeFacture.php");
             	}
             	else
             	{

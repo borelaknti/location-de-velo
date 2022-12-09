@@ -18,7 +18,7 @@ $factureList = $factures->findAll();
 $htmlTable =  '<table  class="table  table-striped table-bordered">
                 <thead class="table-dark"> 
 					<tr>
-						<th> numero d\'identification  </th> <th> Type de velo </th> <th> Nom du client </th> <th> Date de retour </th>
+						<th> numero d\'identification  </th> <th> Type de velo </th> <th> Nom du client </th> <th> Date de retour </th> <th>action</th>
 					</tr>
                 </thead>
                 <tbody>';
@@ -37,6 +37,7 @@ if((count($clientList) > 0) && (count($veloList) > 0) && (count($factureList) > 
             $htmlTable .=  '<td> Aucune date de retour </td>';
         else    
             $htmlTable .=  '<td>'. $facture->return_date .'</td>';
+        $htmlTable .=  ' <td> <a  href="/factureVelo.php?id='. $facture->id.'"  class="link" > <i class="fas fa-info-circle"></i>  </a> </td>';
         $htmlTable .=  '</tr>';
     }
 }

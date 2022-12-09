@@ -45,6 +45,9 @@
             }else
             {
             	$_SESSION['adress']  = cleanUpInputs($adress);
+            	if (preg_match("/^[0-9-' +]*$/",$_SESSION['adress'])) {
+                	$_SESSION['adressErr'] = "l'adresse ne peut pas contenir seulement les chiffres mais doit aussi contenir des lettres";
+            }
             }
             if (empty($phone)) {
             	$_SESSION['phoneErr'] = "Le numero de telephone est obligatoire";

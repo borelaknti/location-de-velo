@@ -9,9 +9,6 @@ $velos = new Velos();
 $rentals = new Rentals();
 $veloList = $velos->findAll();
 $rentalList = $rentals->findAll();
-//$val = 6;
- //$res = searchRental($val,$rentalList);
- //die(var_dump($res));
 ?>
 <?php
 
@@ -37,7 +34,6 @@ if(count($veloList) > 0)
         else
             $htmlTable .=  '<td><i class="fas fa-check icone2"> </i>';
         if($velo->available == 1){
-            //die(var_dump($res));
             if($res == null)
                 $htmlTable .=  '<td> Aucune date de retour </td>';
             else

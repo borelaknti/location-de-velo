@@ -20,7 +20,18 @@ class DatabaseObjects{
      */
     public static function findFacture(): ?array
     {
-        return static::findBySql("SELECT * FROM ".static::$tableNames." WHERE rentals.velo_id = velots.id AND rentals.client_id = clients.id ORDER BY rentals.id DESC LIMIT 1 ");
+        return static::findBySql("SELECT * FROM rentals  join velots on  velots.id = rentals.velo_id JOIN clients on clients.id = rentals.client_id ORDER by rentals.id DESC LIMIT 1 ");
+    }
+
+    //common database methods
+    /**
+     * @param $id
+     * @return array|null
+     */
+    public static function findOneFacture($id): ?array
+    {
+
+        return static::findBySql("SELECT rentals.id as idr, rentals.velo_id as idv, rentals.client_id as idc ,velots.hauteur,velots.type,velots.prix,velots.available,clients.name,clients.addresse,clients.phone,clients.credit_card FROM rentals  join velots on  velots.id = rentals.velo_id JOIN clients on clients.id = rentals.client_id WHERE rentals.id = $id");
     }
    
 

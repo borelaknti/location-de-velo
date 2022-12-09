@@ -37,9 +37,12 @@
             }
             if(empty($type)){
             	$_SESSION['typeErr'] =  "Le type est obligatoire";
+            	
             }else
             {
             	$_SESSION['type'] = cleanUpInputs($type);
+            	if (preg_match("/^[0-9-' +]*$/",$_SESSION['type'])) {
+                	$_SESSION['typeErr'] = "le type ne peut pas contenir seulement les chiffres mais doit aussi contenir des lettres";}
             }
             if (empty($prix)) {
             	$_SESSION['prixErr'] = "Le prix est obligatoire";
@@ -71,6 +74,7 @@
             		$velosArray = $velos->createVeloArray($hauteur,$type,$prix);
             		$result = $velos->createVelo($velosArray);
             		if($result['success']){
+            			$message = "";
             			redirect_to("/listeVelo");
             		}
             		else
