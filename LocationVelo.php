@@ -114,7 +114,7 @@ $message = $_SESSION['message'] ?? "";
     									{
 											echo '<option disabled> '.  $velo->type . ', Loue </option>';
 									 	} else { 
-											echo '<option value="'. $velo->id .'"> '.$velo->type .' </option>';
+											echo '<option value="'. $velo->id .'"> '.$velo->type .', Disponible </option>';
 										}
 									}
 								}
