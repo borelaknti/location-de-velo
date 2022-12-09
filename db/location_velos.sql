@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 11 nov. 2022 à 22:08
+-- Généré le : ven. 09 déc. 2022 à 14:54
 -- Version du serveur : 8.0.21
 -- Version de PHP : 7.4.9
 
@@ -139,11 +139,7 @@ INSERT INTO `clients` (`id`, `name`, `addresse`, `phone`, `credit_card`) VALUES
 (98, 'Stephon Braun III', '45027 Frederique Prairie Suite 820\nNikkiland, HI 41420', '1107245435', '5314929622064586'),
 (99, 'Pansy Blanda', '0457 Torp Green\nDurganburgh, PA 56485-7281', '7189228408', '4929377022877969'),
 (100, 'Alda Abbott', '056 Funk River\nWest Stellafort, IA 06373', '1435582327', '4556577103174689'),
-(101, 'borel', '94 rue jacque', '4183658542', '1254368921'),
-(102, 'borel', '94 rue jacque', '4183658542', '1254368921'),
-(103, 'borel', '94 rue jacque', '4183658542', '1254368921'),
 (104, 'borel', '94 rue jacque', '4183658542', '1254368921'),
-(105, 'borel', '94 rue jacque', '4183658542', '1254368921'),
 (106, 'Giovanni', '94 rue jacque', '4183658542', '1254368921'),
 (107, 'philip', '97 jean lesage', '5421532629', '421-125-2365');
 
@@ -193,7 +189,13 @@ INSERT INTO `rentals` (`id`, `velo_id`, `client_id`, `return_date`) VALUES
 (111, 7, 12, NULL),
 (112, 8, 3, '2022-10-22'),
 (114, 5, 2, '2022-10-22'),
-(115, 14, 3, '2022-10-26');
+(115, 14, 3, '2022-10-26'),
+(117, 5, 7, '2022-11-18'),
+(118, 8, 2, '2022-11-30'),
+(119, 5, 2, '2022-12-02'),
+(120, 14, 15, '2022-12-14'),
+(121, 9, 107, '2022-12-31'),
+(122, 17, 16, '2022-12-20');
 
 -- --------------------------------------------------------
 
@@ -216,16 +218,17 @@ CREATE TABLE `velots` (
 INSERT INTO `velots` (`id`, `hauteur`, `type`, `prix`, `available`) VALUES
 (2, 037.31, 'nisi', 458.36, 1),
 (3, 040.81, 'voluptas', 334.27, 1),
-(4, 044.67, 'ipsam', 997.33, 1),
-(5, 033.66, 'dolores', 515.48, 1),
-(6, 034.86, 'sint', 1367.14, 1),
-(7, 044.36, 'nostrum', 703.59, 1),
+(4, 044.67, 'ipsam', 997.33, 0),
+(5, 033.66, 'dolores', 515.48, 0),
+(6, 034.86, 'sint', 1367.14, 0),
+(7, 044.36, 'nostrum', 703.59, 0),
 (8, 039.66, 'optio', 1678.74, 1),
 (9, 036.43, 'sed', 1710.74, 1),
 (10, 035.17, 'molestias', 591.78, 1),
-(11, 000.95, 'BMX', 2500.00, 1),
+(11, 000.95, 'BMX', 2500.00, 0),
 (14, 000.95, 'Vans235', 2500.00, 1),
-(15, 011.00, 'Vans235', 2500.00, 0);
+(16, 005.45, 'vans45', 4500.00, 0),
+(17, 000.95, 'Star22', 500.00, 1);
 
 --
 -- Index pour les tables déchargées
@@ -259,19 +262,19 @@ ALTER TABLE `velots`
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT pour la table `rentals`
 --
 ALTER TABLE `rentals`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- AUTO_INCREMENT pour la table `velots`
 --
 ALTER TABLE `velots`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Contraintes pour les tables déchargées
