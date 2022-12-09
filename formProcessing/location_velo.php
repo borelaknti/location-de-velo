@@ -41,7 +41,7 @@
             {
             	$_SESSION['date'] = cleanUpInputs($date);
             	$dt = time();
-            	$dt = date("Y-m-d", $dt);
+            	$dt = date("Y-m-d", $dt); // formater la date dans un format precis
 
             	if($dt >= $date)
             	{

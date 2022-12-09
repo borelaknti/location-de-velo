@@ -31,7 +31,7 @@
 			<div class="col-sm-11 ">
 				<h1>Inscrire un nouveau client</h1>
 			</div>
-		</div>
+		</div> 
 		<?php
             if ($message){
                 echo 
@@ -85,6 +85,7 @@
 			</form>
 		</div>
 	</div>
+	//vider le formulaire a l'aide du boutton reset
 	<script >
 		$(document).ready(function(){
 			$('#reset').click(function(){

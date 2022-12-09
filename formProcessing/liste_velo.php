@@ -41,7 +41,7 @@ if(count($veloList) > 0)
         }
         else
             $htmlTable .=  '<td> Encore en stock </td>';
-        if($velo->available == 1)
+        if($velo->available == 1) //si le velo est disponible afficher que oui
             $htmlTable .=  '<td>  <i class="fas fa-plus"></i>  </td> <td> <a  href="/formProcessing/supprimerVelo.php?id='. $velo->id.'" " class="link" > <i class="fas fa-trash"></i>  </a> </td>  <td> <a  href="/formProcessing/changeEtat.php?id='. $velo->id.'" " class="link" > <i class="fas fa-check-circle icone2"></i> </a>  </td>';
         else
             $htmlTable .=  '<td> <a  href="locationVelo.php?id='. $velo->id.'" " class="link" > <i class="fas fa-plus"></i> </a> </td> <td> <a  href="/formProcessing/supprimerVelo.php?id='. $velo->id.'" " class="link" > <i class="fas fa-trash"></i>  </a> </td> <td>  <i class="fas fa-check-circle " ></i>   </td>';

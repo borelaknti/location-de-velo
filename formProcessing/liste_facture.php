@@ -27,8 +27,8 @@ if((count($clientList) > 0) && (count($veloList) > 0) && (count($factureList) > 
     
     foreach ($factureList as $facture)
     {
-        $res = search($facture->velo_id,$veloList);
-        $rec = search($facture->client_id,$clientList);
+        $res = search($facture->velo_id,$veloList); // chercher le velo dans la liste de velo a l'aide de l'id
+        $rec = search($facture->client_id,$clientList); // chercher le client dans la liste de clients a l'aide de l'id
     	$htmlTable .=  '<tr>';
         $htmlTable .=  '<td> <label class="maj">'. $facture->id .'</label> </td>';
         $htmlTable .=  '<td>'. $res->type .'</td>';

@@ -22,7 +22,7 @@ function cleanUpInputs($input) {
   $input = htmlspecialchars($input);
   return $input;
 }
-
+// chercher un item par id dans une liste
 function search($id,$veloList)
 {
     foreach ($veloList as $velo)
@@ -31,7 +31,7 @@ function search($id,$veloList)
             return $velo;
     }
 }
-
+//chercher une facture a l'aide de son id dans un liste
 function searchRental($id,$lab)
 {
     foreach ($lab as $index)
@@ -59,7 +59,7 @@ function outputError($msg)
         return "<p class=\"error-msg mt-3 \"> {$msg} </p>";
             }
 }
-
+//chercher un velo a l'aide de son type dans une liste de velo
 function searchVelo($type,$veloList)
 {
     foreach ($veloList as $velo)
@@ -69,7 +69,7 @@ function searchVelo($type,$veloList)
     }
     return false;
 }
-
+//chercher un client a l'aide de son nom dans une liste de clients
 function searchClient($nom,$clientList)
 {
     foreach ($clientList as $client)
