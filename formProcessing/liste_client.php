@@ -8,7 +8,9 @@ $clients = new Clients();
 $clientList = $clients->findAll();   
 ?>
 <?php
-
+/*
+ * Corrections : Ajuster la taille des colonnes pour les numéros de téléphones et de cartes de crédits.
+ */
 $htmlTable =  '<table class="table  table-striped table-bordered "> 
                 <thead class="table-dark">
 					<tr>

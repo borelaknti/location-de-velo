@@ -48,15 +48,15 @@
             	$_SESSION['prixErr'] = "Le prix est obligatoire";
             } else {
             	$_SESSION['prix'] = cleanUpInputs($prix);	
-            		if (!preg_match("/^[0-9\.]+$/",$prix)) 
-            		{
-            	 		$_SESSION['prixErr'] = "Le prix ne peux pas contenir des lettres";
-            		} 
-            		if ($prix < 1 && empty($_SESSION['prixErr'])) 
-            		{
-            	 		$_SESSION['prixErr'] = " Le prix doit etre superieur a 1$ ";
-            		}         
-            	}
+                if (!preg_match("/^[0-9\.]+$/",$prix))
+                {
+                    $_SESSION['prixErr'] = "Le prix ne peux pas contenir des lettres";
+                }
+            		if ($prix < 1 && empty($_SESSION['prixErr']))
+                    {
+                        $_SESSION['prixErr'] = " Le prix doit etre superieur a 1$ ";
+                    }
+                }
             
 
             if(empty($message) && empty($_SESSION['hauteurErr']) && empty($_SESSION['typeErr']) && empty($_SESSION['prixErr']))
